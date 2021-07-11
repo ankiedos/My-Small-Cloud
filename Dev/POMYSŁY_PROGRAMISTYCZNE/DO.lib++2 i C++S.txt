@@ -1,0 +1,14 @@
+#define DECLARE_USES_COUNTER(func, type) type stdext_##func##_uses_counter{};
+#define WASTABLE_FUNCTION(limit, func, ...) if(stdext_##func##_uses_counter > (limit)) std::runtime_error("Function's " #func " uses limit is abused!\n"); else func(__VA_ARGS);
+#define DECLARE_PROGRAM_WASTING_CALLS_COUNTER(type) type stdext_program_wasting_calls{};
+#define CALL_PROGRAM_WASTING_FUNCTION(limit, func, ...) if(stdext_program_wasting_calls > (limit)) std::runtime_error("Program's function calls limit is abused!\n"); else func(__VA_ARGS);
+
+template<typename T, typename ...Args>
+T make(Args ...args) { return T{args...}; }
+
+(w C++S):
+template<typename New, typename ...Args>
+decltype(detail.make()) MakeSingleton(Args ...args)
+begin
+    return detail.make.return_type = New, detail.make(args...)
+end

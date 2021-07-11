@@ -1,0 +1,132 @@
+SŁOWA KLUCZOWE PSEUDOKODOWE
+Instrukcje Warunkowe
+jesli						if
+jesli_nie						zamiast pisać: jesli !... to, można pisać: jesli_nie...to
+to						występuje: jesli...to, jesli_nie...to, w_przec_razie_jesli...to,
+w_przec_razie_jesli_nie...to
+
+w_przec_razie					else
+w_przec_razie_jesli					elif/else if
+w_przec_razie_jesli_nie				analog. jak w jesli_nie
+wybor						switch
+sytuacja						case
+
+Komentarze
+kom						początek i koniec komentarza liniowego
+komblok_p					początek komentarza blokowego
+k						kontynuacja w następnej linii komentarza blokowego
+komblok_k					koniec komentarza blokowego
+... dok						rozszerzenie dowolnego komentarza do komentarza dokumentacyjnego
+
+Dyrektyw
+dolacz ...						#include/import
+polacz_z ...					łączy z np. mięśniami, oczami (ogólnie: ze sterownikami i czujnikami)
+uzywajac ...					using
+
+Zmienne i Stałe
+definiuj						#def/def
+nat						unsigned long long, ale zakres do nieskończoności
+nat_bez_z					nat bez 0
+calk						long long, ale od nieskończoności do nieskończoności
+calk_bez_z					calk bez zera
+clk_minus						calk na minusie
+rzeczyw						long double, ale od nieskończoności do nieskończoności
+i nieskończona liczba miejsc po przecinku
+
+rzeczyw_plus					rzeczyw na plusie
+rzeczyw_bez_z					patrz: nat_bez_z
+rzeczyw_minus						patrz: calk_-
+uroj						urojone
+ciag_znakow					string
+znak						char
+logicz						bool
+zmienna						var/auto/let
+stala						const
+pustka						void/empty
+bajt						byte/sbyte
+flaga						0 lub 1 (bitowe)
+
+Pętle
+gdy(...) rob					while()
+  ...
+koniec
+
+rob						do...while()
+pocz
+  ...
+gdy(...)
+
+dla(...)						for()
+pocz
+  ...
+koniec		
+
+dla_kazdego(... w ...)					for_each()/foreach()
+pocz
+  ...
+koniec
+
+Typy złożone
+zesp						zespolona  a+b*sqrt(-1)  sqrt(-1)=i
+podw						podwójna  a+b*sqrt(1)  sqrt(1)=j
+kwaternion					kwaternion  a+bi+cj+dk patrz: Wikipedia
+bikwaternion					bikwaternion podwójny kwaternion
+oktonion						oktonion a+bi+cj+dk+el+fm+gn+ho patrz: Wikipedia
+sedenion						sedenion a+bi+cj+dk+el+fm+gn+ho+ip+jq+kr+ms+nt+ou+pw+qv
+patrz: Wikipedia
+
+funkcja						func
+tab						array
+wyliczeniowy					enum
+strukt						struct
+
+Typy generyczne
+Szablon						template
+Lista						List<>
+Wektor						Vector<>
+Slownik						Dictionary<...,...>/map<...,...>/%{...,...}/[...,...]
+Krotka						Tuple<>/{...,...}
+Macierz						zbiór wektorów
+
+OOP	
+klasa						class
+konstrukt						classname()
+destrukt						~classname()
+objekt						object
+przestrzen_nazw						namespace
+modul							module
+dziedziczy_z						inherits/:
+interfejs							interface
+publicz							public:/public
+prywat							private:/private
+chroniony							protected:/protected
+abstrakt							abstract
+wirtual							virtual
+zaprzyj							friend
+
+Operatory
+bez odstępów można	
+=							przypisania
++ - * / % ++ -- ** //						arytmetyczne
+! && ||							logiczne
+| & ^							bitowe
+; " ' ?							"ciag znakow" 'z' 'n' 'a' 'k' ? pytanie
+< > <= >= == ===  != <> << >>					porównania(mniejsze od, większe od, mniejsze rowne, większe równe, równe,
+równe ten sam typ, nierówne, nierówne, dużo mniejsze, dużo większe)
+
+: :: . & ( ) [ ] @ # ##						dziedziczenia, zakresu, wyłuskania, referencji, nawiasy, wskaźnik,
+skrót liczby (zliczenie cyfr), liczba porządkowa
+
+wymagane odstępy
+nowy nowy[] usun usun[]					alokacja dynamiczna
+pierw -v- o x sin cos tg ctg sec cosec				pierwistek(a,n) iloczyn wektorowy, iloczyn skalarny iloczyn kartezjański,
+sinus kosinus tangens kotangens sekans kosekans
+
+nat() nat_bez_z()						konwersja na typy nat
+calk() calk_bez_z() calk_minus()				-||- calk
+rzeczyw() rzeczyw_plus() rzeczyw_bez_z() rzeczyw_minus()		-||- rzeczyw
+uroj() zesp() podw() kwaternion() bikwaternion() oktonion() sedenion()	-||- nadrzeczywiste
+ciag_znakow() znak()						-||- znakowe
+logicz() zmienna()						-||- typ logiczy i dowolnotypową zmienną
+stala() funkcja() pustka() bajt() flaga() 				-||- stałą, funkcję i typy: void/empty, byte/sbyte, bitowy
+tab() lista() wektor() slownik() krotka() wyliczeniowy() strukt()		-||- typy złożone i generycne 

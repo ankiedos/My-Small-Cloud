@@ -1,0 +1,10 @@
+Petent p1 = Petent("Jan", {"Kowalski", "Nowak"}, lat 29, Sprawa("Wycinka drzew", "Prośba o zgodę na wycięcie drzewa zasłaniającego widok przez okno na piętrze"),
+                   Adres(404, 29, "Strzelców Podkarpackich", "Przemyśl", "Polska"), KodPocztowy(37, 2401));
+Petent p2 = Petent("Adam", {"Nowakowski"}, lat 35, Sprawa("Wyburzenie budynku", "Prośba o wyburzenie budynku pod adresem 38 ul. Krośnieńska, Krosno, Polska"),
+                   Adres(320), 213, "Krośnieńska", "Krosno", "Polska"), KodPocztowy(12, 213));
+Kwota kwota_za_p1 = Kwota("zgoda na wycinkę", 1 sztuka);
+Kwota kwota_za_p2 = Kwota("wyburzenie", 1 sztuka);
+Napisz("Kwota za zgodę na wycinkę drzewa w ilości 1 sztuka: ", kwota_za_p1); # => 0 zł
+Napisz("Kwota za wyburzenie budynku w ilości 1 sztuka: ", kwota_za_p2);      # => >1000 zł
+Wybor w = Wybierz({p1, kwota_za_p1}, {p2, kwota_za_p2});
+Napisz("Opłacalniejsza sprawa to: ", w);                                     # => Prośba o zgodę na wycięcie drzewa zasłaniającego widok przez okno na piętrze, przez: Jan Kowalski-Nowak lat 29 z ulicy Strzelców Podkarpackich 29/404 w Przemyślu, Polska.

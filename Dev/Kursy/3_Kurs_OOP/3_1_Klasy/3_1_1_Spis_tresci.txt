@@ -1,0 +1,23 @@
+// SPIS TRESCI :								Linia
+	// SPIS TRESCI							1
+	// 1. Dodatki matematyczne itp.						3
+		// 1.1. Pojecia						4
+			// ZBIOR						84, 96, 101
+			// KLASA						39, 40, 90, 97, 102
+			// GRUPA						103
+		// ROZNICA						96
+		// KLASA - UOGOLNIENE ZBIORU				89
+		// SLOWNA DEFINICJA MATEMATYCZA				100
+	// 2. Przydatne rzeczy						11
+		// LINKI							106
+		// WIECEJ INFORMACJI					107
+	// 3. Przypomnienie							14
+		// SKROTY KLAWISZOWE - PRZYPOMNIENIE			76
+		// PRZYPOMNIENIE						29
+			// BNF/EBNF					33
+	// NIE PRZEJDZIE							72
+	// PODSUMOWANIE						38
+	// 4. Co bylo na lekcji? (kod)						20
+		// DEFINICJA KLASY					48
+		// DOSTEP						51
+			// DOSTEP PUBLICZNY				51

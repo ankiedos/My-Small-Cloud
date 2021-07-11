@@ -1,0 +1,11 @@
+"some text" > "file.txt";
+"another text" >> "file.txt";
+until(true) do
+    // ...
+end
+print "...";
+print EOL;
+print EOF;
+print SOH;
+print ACK;
+print NUL;

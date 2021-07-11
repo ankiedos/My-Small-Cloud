@@ -1,0 +1,21 @@
+Tag: 0.1.0-alpha
+
+
+Title: You lose this quiz!
+
+
+Description: This is the first release of my simple game engine
+What is within this:
+- Basic informations about player
+- Quiz functions:
+   - `Question()`;
+   -  `Answer()`;
+- `Events`:
+  - `Lose()`;
+- Language variants in `Lose()`;
+
+Coming updates:
+- `Quiz` with language variants;
+- Greater language personalisation (female conjugations);
+- `Events` extended with `Win()` and more;
+- Extended `Quiz`;

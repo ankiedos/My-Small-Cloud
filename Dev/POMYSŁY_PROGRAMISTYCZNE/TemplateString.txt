@@ -1,0 +1,12 @@
+std::ifstream template(argv[1]);
+std::ifstream src(argv[2]);
+if(argc >= 4 && std::string(argv[3]) == "-o")
+std::ofstream output(argv[4]);
+else std::ofstream output("a.cpp");
+
+stdext::StringUtils::TemplateString templatestr{};
+stdext::Serialisation::nlohmann::json defs{};
+src >> defs;
+template >> templatestr;
+std::string res = stdext::StringUtils::template<std::string>(templatestr, defs);
+output << res;

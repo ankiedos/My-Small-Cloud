@@ -1,0 +1,12 @@
+#define init(var, type, value) type var = value; 
+#define declare(var, type) type var; 
+#define assign(var, val) var = val; 
+#define add_and_assign(var, val) var += val; 
+#define add(val1, val2) val1 + val2; 
+#define sub_and_assign(var, val) var -= val; 
+#define sub(val1, val2) val1 - val2; 
+#define mult_and_assign(var, val) var *= val; 
+#define mult(val1, val2) val1 * val2; 
+#define div_and_assign(var, val) var /= val; 
+#define div(val1, val2) val1 / val2; 
+#define return(val) return val; 

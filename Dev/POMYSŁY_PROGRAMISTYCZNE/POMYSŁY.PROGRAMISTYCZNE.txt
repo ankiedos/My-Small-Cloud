@@ -1,0 +1,27 @@
+WSL
+BatchHacks
+NASMSimulator
+AdaLovelaceAlgorithm
+Biological Simulator
+ExtensibleDictionary
+// wrocic do stanu poczatkowego
+Obj.field = Class().field;
+
+template<typename T> class XY
+{
+T x, y;
+public:
+T SetX(T x) { ... } // Na przykład: SetX(T x) { this->x = x; return this; }
+T SetY(T y) { ... }
+T AndX(T x) { SetX(x); } // Albo: this->x = x; return x;
+T AndY(T y) { SetY(y); }
+}
+
+XY obj;
+obj.SetX(0).AndY(1);
+XY obj2;
+obj2.SetY(3).AndX(7);
+XY obj3;
+obj3.SetX(2);
+obj3.SetY(3);
+obj3.AndY(1);

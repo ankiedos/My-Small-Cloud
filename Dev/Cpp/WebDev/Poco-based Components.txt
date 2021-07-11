@@ -1,0 +1,49 @@
+#include<Poco/Net/ServerSocket.h>
+#include<Poco/Net/HTTPServer.h>
+#include<Poco/Net/HTTPRequestHandler.h>
+#include<Poco/Net/HTTPRequestHandlerFactory.h>
+#include<Poco/Net/HTTPResponse.h>
+#include<Poco/Net/HTTPServerRequest.h>
+#include<Poco/Net/HTTPServerResponse.h>
+#include<Poco/Util/ServerApplication.h>
+#include<Poco/Timestamp.h>
+#include<Poco/DateTimeFormat.h>
+#include<Poco/DateTimeFormatter.h>
+#include<iostream>
+#include<string>
+#include<map>
+
+class Component
+{
+public:
+    virtual void render(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTPServerResponse& res);
+    explicit Component(const std::map<std::string, std::string>& attrs = {{"", ""}}, const std::string& txt = "") : attributes{attrs}, text{txt} {}
+protected:
+    std::string text;
+    std::map<std::string, std::string> attributes;
+};
+class CurrentTimeComponent : private Component
+{
+public:
+    CurrentTimeComponent(const std::map<std::string, std::string>& attrs = {{"", ""}}, const std::string& fmt = "dd.mm.yyy", const std::string& txt = "")
+    : format{fmt}, Component{attrs, txt} {}
+
+    void render(Poco::Net::HTTPServerRequest& req, Poco::Net::HTTPServerResponse& res) override
+    {
+        Poco::Timestamp now{};
+        std::string dt{Poco::DateTimeFormatter::format(now, format)};
+
+        std::ostream& os = res.send();
+        os << R"(<div )";
+        for(auto& [key, val] : attributes)
+        {
+            if(!key.empty()) os << key << "=" << R"(")" << val << R"(")" << " ";
+            else throw std::exception("Attribute's key must not be empty!");
+        }
+        os << R"(>
+    )" << text << R(" )" << dt << "</div>";
+    }
+private:
+    std::string format;
+    using Component::text, Component::attributes;
+};

@@ -1,0 +1,19 @@
+\@ It can be a template!
+\@ You simply have to save such text into <you template name>.posttemplate
+\+tags HarryPotter,InsygniaSmierci,HP7 \@ Post's keywords (comma-separeted and without whitespaces)
+\+meta group culture.movies.fantasy
+
+\+title Harry Potter i Insygnia Śmierci
+Harry Potter 7 jest do bani
+\+include disclaimer \@ "It is only my opinion"
+\+if LIKE_SPOILERS or (defined(KNOW_HP7) and KNOW_HP7) \@ If somebody doesn't like spoilers and if somebody doesn't know HP7, then don't display this part
+Uważam tak, ponieważ w Harrym Potterze 7 dzieje się tak i tak...
+\+endif
+\+include signature \@ For example: Anonymouse1234 <new line> To be or not to be...
+\+run dark.php 70 \@ Run your *personal and associated with your profile* script which makes the background's dark factor be 70 percent
+\+set KNOW_HP7 true \@ Set your profile property KNOW_HP7 to true
+
+\@ Welcome to the chat!
+\+for i in 1 .. 10
+\+header Welcome to the chat: {\+subheader $i}!
+\+endfor

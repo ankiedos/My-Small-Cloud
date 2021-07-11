@@ -1,0 +1,159 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void ALGOL()
+{
+	cout << "ALGOL powstal w roku 1958 barddziej jako standard zapisywania algorytmow w tekstach naukowych niz jako jezyk.\n";
+	cout << "NIE MIAL instrukcji I/O!\n";
+	cout << "Byl rozwijany przez nastepne 10 lat.\n";
+	cout << "Odegral bardzo wazna role w tworzeniu nowych jezykow programowania.\n";
+	cout << "Stworzonow na jego podstawie m.in. : \n";
+	cout << "\tPL\\I\n\t
+	cout << "Czy chcesz wrocic? (Tak/Nie)\n";
+	(wybor == "Tak") ? ((goto mainmenu) : ( (wybor == "Nie") ?(
+		{
+			Sleep(1000);
+			system("exit");
+		} : (cerr << "________________________________________________________\n|WYJATEK 3 : !!!OPCJE TYLKO W PRZEDZIALE (<0, 1> ^ N) !!!|\n________________________________________________________\n\n") ) );
+}
+int main()
+{
+	string wybor = "";
+	cout << "Witaj w bazie danych rodziny jezyka C!\n";
+	cout << "Wybierz po kategoriach: (1-jezyki, 2-chronologia, 3-ludzie)\n";
+	cin >> wybor;
+	
+	mainmenu:
+	switch(wybor)
+	{
+	case '1':
+		cout << "1- ALGOL\t2- CPL\t3- BCPL\t4- B\t5- New B\n6- C\t7- C z klasami\t8- C++\t9- Obj-C\t10- C--\n";
+		cout << "11-Cmm\t12-D\t13-C#\t14-C++/CLI\t15-MCPL\n16-Q#\t17-Przodkowie niektorych z ww jezykow\n";
+		cin >> wybor;
+		switch(wybor)
+		{
+		case '1':
+			ALGOL();
+			break;
+		case '2':
+			CPL();
+			break;
+		case '3':
+			BCPL();
+			break;
+		case '4':
+			B();
+			break;
+		case '5':
+			B();
+			break;
+		case '6':
+			C();	
+			break;
+		case '7':
+			Cpp();
+			break;
+		case '8':
+			Cpp();
+			break;
+		case '9':
+			ObjC();
+			break;
+		case "10":
+			Cminmin();
+			break;
+		case "11":
+			Cmm();
+			break;
+		case "12":
+			D();
+		case "13":
+			CS();
+			break;
+		case "14":
+			CppCLI();
+			break;
+		case "15":
+			MCPL();
+			break;
+		case "16":
+			QS();
+			break;
+		case "17":
+			Inne();
+			break;
+		default:
+			cerr << "_________________________________________________________\n|WYJATEK 1 : !!!OPCJE TYLKO W PRZEDZIALE (<1, 17> ^ N) !!!|\n_________________________________________________________";
+			Sleep(5000);
+			system("cls");
+			break;
+		}
+	case '2':
+		cout << "1958\t1960\t1963\t1966\t1969\t1972\t1980\n1983\t1995\t1997\n2000\t2002\t2005\t2006\t2007\t2017\n";
+		cin >> wybor;
+		switch(wybor)
+		{
+		case "1958":
+			_1958_();
+			break;
+		case "1960":
+			_1960_();
+			break;
+		case "1963":
+			_1963_();
+			break;
+		case "1966":
+			_1966_();
+			break;
+		case "1969":
+			_1969_();
+			break;
+		case "1972":
+			_1972_();
+			break;
+		case "1980":
+			_1980_();
+			break;
+		case "1983":
+			_1983_();
+			break;
+		case "1995":
+			_1995_();
+			break;
+		case "1997":
+			_1997_();
+			break;
+		case "2000":
+			_2000_();
+			break;
+		case "2002":
+			_2002_();
+			break;
+		case "2005":
+			_2005_();
+			break;
+		case "2006":
+			_2006_();
+			break;
+		case "2007":
+			_2007_();
+			break;
+		case "2017":
+			_2017_();
+			break;
+		default:
+			cerr << "________________________________________\n|WYJATEK 2 : !!!OPCJE TYLKO od 1 do 11!!!|\n________________________________________";
+			Sleep(5000);
+			system("cls");
+			break;
+	case '3':
+		cout << "B-Bjarne Stroustrop\tG-Bill Gates\tK-Ken Tompson\tS-Sun Microsystems\tT-Tworca kompilatora Zortech C++\n";
+cmm
+ 8 8
+ \"/
+  V
+E8B
+E83
+'5'5'
+fefault/fedault
+twierdzenie co to twierdzenie

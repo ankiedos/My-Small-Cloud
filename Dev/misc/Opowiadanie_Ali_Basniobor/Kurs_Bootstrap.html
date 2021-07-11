@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl_PL">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kurs Bootstrap</title>
+ 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="divclasses.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      body
+      {
+        background-color:grey;
+      }
+      table
+      {
+        background-color: white;
+      }
+      .bootstrap
+      {
+        background: url("data:image/jpeg;base64,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") no-repeat;
+        background-size: contain;
+        background-repeat: round;
+        background-attachment: fixed;
+        /* margin-top: 250px; */
+      }
+      img
+      {
+        background-size: contain;
+      }
+      .opis
+      {
+        color: red;
+      }
+      #h8
+      {
+        color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1 id="title-header">Bootstrap działa!!!</h1>
+    <div id="page-200-normalised" class="bootstrap">
+        <div class="row">
+            <div class="placeholder-100">
+              <p class="opis help-in-adapt-300-ph-100-l">To jest strona testująca bibliotekę Botstrap</p>
+              <p class="opis help-in-adapt-300-ph-100-l">Twórca: Antoni Kiedos</p>
+              <p class="opis help-in-adapt-300-ph-100-l">Data modyfikacji: 13.11.2020</p>
+            </div>
+            <div></div>
+            <div class="col-lg-2 placeholder-100">
+            </div>
+            <div class="col-lg-7">
+              <img src="http://imperiumrzymskie.pl/styles/6.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="placeholder-750">
+            </div>
+            <div class="col-lg-7 placeholder-200">
+            </div>
+            <div class="col-lg-7 table-responsive">
+                <table class="table table-hover table-bordered table-striped table-codensed">
+                          <thead>
+                              <tr>
+                                  <th>N</th>
+                                  <th>Paradygmat Programowania</th>
+                                  <th>Zalety</th>
+                                  <th>Wady</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Proceduralny</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                              </tr>
+                              <tr>
+                                  <td>Funkcyjny</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                              </tr>
+                              <tr>
+                                  <td>Strukturalny</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                              </tr>
+                              <tr>
+                                  <td>Objektowy</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                              </tr>
+                              <tr>
+                                  <td>Logiczny</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                              </tr>
+                              <tr>
+                                  <td>Agentowy</td>
+                                  <td>Agenty są od razu nastawione na błąd, do tego, co inne agenty im wysyłają podchodzą z dystansem</td>
+                                  <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                              </tr>
+                              <tr>
+                                      <td>Imperatywny</td>
+                                      <td>Placeholder</td>
+                                      <td>Placeholder</td>
+                                  <td>Placeholder</td>
+                              </tr>
+                          </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>

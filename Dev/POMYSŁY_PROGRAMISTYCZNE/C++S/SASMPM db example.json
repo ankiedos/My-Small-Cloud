@@ -1,0 +1,23 @@
+{
+    "packages": [
+        {
+            "name": "exec",
+            "version": "${SASM_VER}",
+            "author": "Antoni Kiedos",
+            "files": [
+                "plugins/core/exec/exec.dynplug",
+                "plugins/core/exec/exec.smod"
+            ],
+            "brief": "Execute shell commands",
+            "description": "Dynamic plugin allowing executing system shell commands like mkdir or cp within SASM code",
+            "dependencies": [],
+            "license": "GNU GPLv3-or-higher",
+            "website": "https://ankiedos.github.io/sasm-pkgs/exec-plugin/",
+            "issues": "https://github.com/ankiedos/sasm-pkgs/issues",
+            "pull-requests": "https://github.com/ankiedos/sasm-pkgs/pulls",
+            "contributing": "docs/plugins/core/exec/CONTRIBUTING.md",
+            "docs": ["docs/plugins/core/exec/index.md"],
+            "dumpable": true
+        }
+    ]
+}

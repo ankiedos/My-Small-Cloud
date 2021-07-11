@@ -1,0 +1,18 @@
+int Random(int to_shift = 0, int and = 0, int or = 0, int shifts = 0, int xor_ = 0, unsigned base = 10)
+{
+	return std::stoi(
+		std::to_string((~((to_shift << shifts) & and | or) ^ xor_) >> (shifts - 1)),
+		nullptr, base);
+}
+		  ___		    ____________________
+dig(X) = {n : n = x_n ^ x e X ^ x = x1 x2 x3...x_n-1 x_n }
+DTD -- DUOTRYDECYMALNY
+	    _  _	 _  _		_  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+dig(DTD) = <0, W>_32 = (<0, 9> n N) u { A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, W }
+327_10 = A7_32
+	    	      _________
+digs(x) = { x_i : x = ...x_i... }
+digsys(x_S) = { n : n e dig(S) }
+1/root(x, n) = root(1/x, n)
+
+(a - a = 0) <=> (a * 0 = 0)

@@ -1,0 +1,30 @@
+pan zarazony
+bardo szybko mówi
+rozgrzewkę jednak trzeba rzesłać
+Jan Żywica
+plumka na teamsie
+prawie napisałem
+22 tUTC + 3 = 25 tS
+@echo off
+title Batch Example
+color 0A
+echo Example Echo
+:start
+
+set /p "%command%=>$"
+set /p "%arg%="
+if %command%=="clear" (
+cls
+goto start
+)
+else if %command%=="help" (
+echo clear -- clear screen
+echo help -- help
+echo changedir dir-- change directory to dir
+echo create "file.txt"-- create file.txt
+echo removedir -- delete and change directory
+)
+else if %command%=="changedir %arg%" (
+cd %arg%
+)
+else if

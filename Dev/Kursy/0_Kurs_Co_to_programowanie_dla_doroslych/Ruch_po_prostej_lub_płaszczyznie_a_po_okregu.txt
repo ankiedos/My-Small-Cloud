@@ -1,0 +1,10 @@
+delta(wielkość)=wielkość-wielkość_0
+
+Prosta/Płaszczyzna		Okrąg
+v=(s / delta(t))		omega=(delta(fi) / delta(t))
+a=(v / delta(t))		epsilon=(delta(omega) / delta(t))
+x=v_0 * t+x_0		delta(fi)=(delta(s) / delta(t))
+f=ni=(1 / T)		f=ni=(1 / T)
+a_d=((v^2) / r)		a_d=(omega^2) * r		a_d=4 * (pi^2) * (ni^2) * r	a-D=(4 * (pi^2) * r) / (T^2)
+
+

@@ -1,0 +1,23 @@
+GET "libhdr"
+GLOBAL { licznik: ug }
+MANIFEST { granica = 999 }
+LET start() = VALOF
+{ LET jest_pierwsza = getvec(granica)
+    licznik := 0
+    FOR i = 2 TO granica DO jest_pierwsza ! i := TRUE
+
+    FOR p = 2 TO granica IF jest_pierwsza ! p DO
+    { LET i = p*p
+        UNTIL i>granica DO { jest_pierwsza ! i := FALSE; i := i + p }
+        out(p)
+    }
+    
+    writes("*nkoniec wejscia*n")
+    freevec(jest_pierwsza)
+    RESULTIS 0
+}
+AND out(n) BE
+{ IF licznik MOD 10 = 0 DO newline()
+    writef(" %i3", n)
+    licznik := licznik + 1
+}

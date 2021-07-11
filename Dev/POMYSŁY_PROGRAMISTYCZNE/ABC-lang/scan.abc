@@ -1,0 +1,5 @@
+scan
+mult 2
+add 3
+sub 4
+print x

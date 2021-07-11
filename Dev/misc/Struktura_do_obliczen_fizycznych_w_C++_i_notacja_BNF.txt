@@ -1,0 +1,51 @@
+V = \omega * \r_1
+v = \omega * \r_2
+\omega_1/t_1 = 2 * \pi
+\omega_2/t_2 = 2 * \pi / 2 * \t_2
+v = 
+struct  CialoFizyczne
+{
+	struct Move
+	{
+		struct ConstLineMove
+		{
+			auto v; // predkosc
+			auto s;	// droga
+			auto t;	// czas
+			auto vSet() return v = s / t;
+			auto sSet() return s = v * t;
+			auto tSet() return t = s / v;
+		}
+		
+		struct ConstAcceleratedLineMove
+		{
+			auto a;	// przysieszenie
+			auto v;	// predkosc
+			auto t;	// czas
+			auto s;	// droga
+			// Wzor na przyspieszenie
+			auto aSet() return a = v / t;
+			auto vSet() return v = a * t;
+			auto tSet() return t = v / a;
+			// Wzor na droge
+			auto sSet() return s = (a * (t * t)) / 2;
+			auto aSet() return a = (2 * s) / (t * t);
+			auto tSet() return t = (std::sqrt((2 * s) / a));
+		}
+}
+	auto m;	//masa
+	auto z;	// zryw
+	auto u;	// udar
+	auto V;	// objetosc
+	auto S;	// powierzchnia
+	auto p;	// cisnienie dzialajace na to cialo
+
+<digit>::='0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
+<num>::=<digit>|<num>, <digit>
+<sign>::='-'|'+'
+<integer>::=<sign>, <num>|<num>
+<decimal_point>::=','|'.'
+<real>::=<integer>|<integer>, <decimal_point><num>
+<imag_unit>::="sqrt(-1)"
+<imaginary>::=<real>, '*', <imag_unit>
+<complex>::=<real>, '+', <imaginary>

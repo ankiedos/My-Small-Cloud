@@ -1,0 +1,11 @@
+#include "sasm_interpreter.hpp"
+#include<iostream>
+
+int main(int argc, char** argv)
+{
+    SasmInterpreter interp;
+    auto [status, st] = (interp << "load 1\nprintpi");
+    std::cout << "status: " << static_cast<int>(status) << std::endl;
+    std::cout << "stack.top(): " << st.top() << std::endl;
+    return 0;
+}

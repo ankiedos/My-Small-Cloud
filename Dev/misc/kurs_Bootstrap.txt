@@ -1,0 +1,106 @@
+*=(od 1 do 6)
+<div>
+	.row
+	.col-lg-*
+	.col-md-*
+	.col-sm-*
+	.col-xs-*
+	kolumny przesunięte:
+		.col-lg-offset-*
+		.col-md-offset-*
+		.col-sm-offset-*
+		.col-xs-offset-*
+<h*>
+	<h*>Nagłówek <small>Dopisek</small></h*>
+<p>
+	<p>Akapit std 14px</p>
+	.lead większa niż 14px czcionka do <p>
+	<b> i <strong> to pogrubienie
+	<em> i <i> to pochylenie
+	<small> to też do <p>
+
+	wyrównanie do:
+		- lewej .text-left
+		- prawej .text-right
+		- środka .text-center
+		- wyjustowanie .text-justify
+<abbr title="Rozwinięcie>Skrót</abbr>
+<adress></adress> formatuje adres
+cytat
+	<blockquote>
+		<p>Cytat</p>
+		<small>Źródłó cytatu</small>
+	</blockquote>
+	.blockquote-reverse wyrównuje cytat do prawej
+listy
+	nieuporządkowana
+		.list-unstyled lista bez numerków (nie działa na lity zagnieżdżone w liście z tą klasą)
+		.list-inline elementy obk siebie a nie pod sobą
+	lista słownikowa <dl></dl>
+		<dt>Pojęcie</dt>
+		<dd>Definicja pojęcia</dd>
+		odpowiednik <ul class="list-unstyled">
+				<li><b>Pojecie</b></li>
+				<li>Definicja pojęcia</li>
+			     </ul>
+		.dl-horizontal pojęcie i definicja w jednej linii, następne takie pary w następnych liniach analogicznie
+wstawianie kodu
+	<code></code> kod linijkowy aby znaczniki html-a wyświetlić &lt; to <, a &gt; to >
+	<pre></pre> kod blokowy
+tabele
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Imię</th>
+				<th>Nazwisko</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Jan</td>
+				<td>Kowalski</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Jakub</td>
+				<td>Nowak</td>
+			</tr>
+		</tbody>
+	</table>
+	.table-striped ciemniejsze tło co drugi wiersz
+	.table-bordered obramowanie tabeli
+	.table-hover podświetlenie wiersza nad którym znajdzie sie kursor
+	.table-condensed zmniejsza dopełnienie wewnątrz tabeli (ciaśniejsze komórki)
+	.active .success .danger .warning .info kolory wierszy
+	.table-responsive do <div>, aby tabela z niego nie wychodziła
+
+formularze <form></form>
+	każda grupa elementów w <div class="form-group"></div>
+	.form-control do prawidłowego formatowania pola
+	id="" identyfikator pola
+	placeholder="" tekst wyświetlany wewnątrz pola
+	type="" rodzaj inputu
+	.help-block podpowiedź dla użytkownika
+
+	.checkbox dla <div>, aby był to checkbox
+
+	<button type="submit" class="btn btn-default">Wyślij!</button> przycisk, aby wysłać
+	.form-inline aby wszystkie pola formularza były wyświetlanie na jednej linii a nie pod sobą
+	
+	czytniki ekranowe nie radzą sobie z formularzami bez etykiet (label) więc ukrywamy je poprzez dodanie im klasy
+	.sr-only, dzięki czemu etykiety nie będą widoczne na komputerach a będą się prawidłowo wyświetlać na czytnikach ekranowych
+	liniowe formularze przechodzą w blokowe poniżej szerokości 768px.
+
+	<input></input> podstawowe pole formularza
+	<textarea></textarea> pole tekstowe wielowierszowe, z .form-control i atrybutem rows="ilość-wierszy"
+	.checkbox atrybuty type="checkbox" i value=""
+	.disabled element nieaktywny atrybuty (w <input>): disabled
+	.checkbox-inline chheckboxy w jednej linii
+
+	.radio dla <div> pole pojedynczego wyboru
+	.disabled element nieaktywny atrybuty (w <input>): disabled
+	.radio-inline radio buttony w jednej linii
+	<select class="form-control"><option>Opcja</option></select> lista rozwijana tylko jeden wybór
+	<select multiple class="form-control"><option>Opcja</option></select> lista przewijana wiele wyborów

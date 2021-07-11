@@ -1,0 +1,55 @@
+// "lotnictwo.h"
+using namespace std;
+namespace Lotnictwo
+{
+	class Lotnisko
+	{
+		Samolot s1;
+		Samolot s2;
+		Samolot s3;
+		Samolot s4;
+		Samolot s5;
+		unsigned long int powierzchnia;
+		Samolot s6;
+		Samolot s7;
+		Samolot s8;
+		unsigned long int budzet;
+		Samolot s9;
+		Samolot s10;
+
+		unsigned long int klienci_na_miesiac;
+		unsigned long long int klienci_na_rok;
+		unsigned long int Ustaw_klienci_na_miesiac(){};
+		explicit Lotnisko(unsigned long int powierzchnia_, unsigned long int budzet_, unsigned long int klienci_na_miesiac_)
+			:powierzchnia(powierzchnia_), budzet(budzet_), klienci_na_miesiac(klienci_na_miesiac_), s1(), s2(),
+				s3(), s4(), s5(), s6(), s7(), s8(), s9(), s10()
+		{};
+		~Lotnisko() override {};
+	}
+	class Samolot
+	{
+		string nazwa;
+		unsigned short rok_wyprodukowania;
+		unsigned short liczba_miejsc:12;
+		string dodatkowe_wyposażenie;
+	}
+}
+
+// "lotnictwo.cpp"
+#include "lotnictwo.h"
+using namespace std;
+namespace Lotnictwo
+{
+		Lotnisko::Ustaw_klienci_na_miesiac()
+		{
+			klienci_na_miesiac = klienci_na_rok / 12;
+			return klienci_na_miesiac;
+		}
+		Lotnisko::Lotnisko(unsigned long int powierzchnia_, unsigned long int budzet_, unsigned long int klienci_na_miesiac_)
+			:powierzchnia(powierzchnia_), budzet(budzet_), klienci_na_miesiac(klienci_na_miesiac_), s1(), s2(),
+				s3(), s4(), s5(), s6(), s7(), s8(), s9(), s10()
+		{
+			cout<<"Tworzenie nowego lotniska..."<<endl;
+			Sleep(5000);
+		}
+}

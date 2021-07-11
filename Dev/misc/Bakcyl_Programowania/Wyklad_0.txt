@@ -1,0 +1,65 @@
+Nokia : Tworzenie infrastruktury sieciowej telekomunikacyjnej radiowej
+6 616 ludzi 90% pracuje w centrach R&D (Wrocław (4000 ludzi), Kraków, Bydgoszcz)
+LTE, 5G, Single RAN
+internal perspective ludzie przychodzą z nietypowymi pomysłami
+external perspective współpraca z innymi firmami (nietypowe pomysły)
+Każdy pracownik ma wolontariat aby zachęcić pracowników
+
+Bakcyl 3 edycja 11.2020 - 05.2021
+100% zdalnie
+cała Polska
+2 grupy
+praca i na spotkaniach i między nimi
+Marcin Woźniak
+Patryk Kaczmarek
+Marcin Nurzyński
+
+Ja : praca grupowa nad projektem
+
+Podstawa na CodeWars
+(bool b = true)
+(if b (
+	b = false)
+)
+(int x = 123)
+(while(b)
+(x = 2 * x
+(if
+b = 0
+)
+Control Plain rozwijanie warstwy R&C do stacji bazowej
+Czym się zajmują?
+stacja bazowa - radio podpięte do sieci, służy do tego, aby zapewnić telefonom możłiwość komunikowania się z internetem
+LTE - internet i telefonia komórkowa
+5G - internet i telefonia komórkowa
+modulacja- każy kawałek fali o innym kształcie odpowiaa innym bitom
+duża amplituda fali = 0
+mała amplituda fali = 1
+
+0. poranna gimnastyka
+Patryk Kaczmarek - pracuje przy radiach wysyłających fale i przetwarzających sygnał
+pół godziny gimastyki daje pozytywne efekty:
+- koncentracja
+- samopoczucie
+6:30 - 7:00
+1. Kawa 7:00
+kawa-napój bogów
+2. 7:15
+Początek pracy zdalnej (sprawdzenie maila i teamsów)
+kontynuacja zadania z wczoraj
+Nokia oferuje 2 możliwości:
+nowa funkcjonalność
+naprawianie starych błędów
+
+3. 7:30 - 15:00
+daily - spotkanie codzienne, na którym dzielą sie tym co się udało zrobić wczoraj
+10:30 - 15:00 zdarzają się inne spotkania poszerzanie wiedzy (TDD, Billphoning)
+po 15:00 szukanie czegoś do jedzenia
+godziny pracy w Nokii nie są sztywno ustalone (bo współpraca z różnym klientami, lub z różnymi oddziałami Nokii (w Chinach, Stanach))
+Core Hours - godziny, w któych każdy powinien być w pracy (10:00 - 15:00)
+
+
+
+
+
+

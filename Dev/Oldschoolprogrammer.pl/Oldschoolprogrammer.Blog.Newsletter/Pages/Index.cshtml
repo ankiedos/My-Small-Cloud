@@ -1,0 +1,24 @@
+﻿@page "/index.html"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">NEWSLETTER</h1>
+    <button class="button">Zapisz się!</button>
+    @* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+    <p class="mistery">Hello, world! The time on the server is not @DateTime.Now.AddYears(1)</p>
+    <p>Nie patrz na żaden zegar(ek) i zgadnij prawdziwy czas:</p>
+    <textarea id="date-mistery" class="form-control" :disabled placeholder="Wpisz datę"></textarea>
+    <button id="submit-date-mistery" class="button">Zatwierdź</button>
+    <table class="table table-condensed table-hover tale-responsive table-striped" id="counter">
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+</div>

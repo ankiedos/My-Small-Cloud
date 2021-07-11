@@ -1,0 +1,52 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+.gra
+{
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    margin-left: 500px;
+    
+}
+#Postac
+{
+    width: 20px;
+    height: 50px;
+    background-color: chartreuse;
+    position: relative;
+    top: 450px;
+}
+#Blok
+{
+    width: 20px;
+    height: 20px;
+    background-color: deeppink;
+    position: relative;
+    top: 430px;
+    left: 480.5px;
+    animation: block infinite 1s linear; /*Bez @linear by zwalniał pod koniec*/
+}
+@keyframes block
+{
+    0% {left: 480.5px} /*0%=początek animacji*/
+    100% {left: 0px} /*100%=koniec animacji*/
+}
+p
+{
+    text-align: center;
+}
+.animate
+{
+    animation: jump 0.3s linear;
+}
+@keyframes jump
+{
+    0% {top: 450px}
+    30% {top: 400px}
+    70% {top: 400px}
+    100% {top: 450px}
+}

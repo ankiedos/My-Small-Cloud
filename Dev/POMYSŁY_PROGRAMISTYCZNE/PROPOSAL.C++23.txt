@@ -1,0 +1,12 @@
+#for w preprocesorze
+nameof
+Example implementation
+#define nameof(x) #x
+instanceof
+Example implementation
+#define instanceof(instance, class) (typeid(instance) == typeid(class))
+typeid nie zwracające "t" w szablonach
+instancesof (zwraca std::vector instancji)
+classof
+Example implementation
+nowe typeid jeśli std::is_compound_t<decltype(arg)> ==  true

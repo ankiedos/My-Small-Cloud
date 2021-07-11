@@ -1,0 +1,5 @@
+# exec.dynplug
+def exec 1+
+{
+    system(join($*, ' '))
+}

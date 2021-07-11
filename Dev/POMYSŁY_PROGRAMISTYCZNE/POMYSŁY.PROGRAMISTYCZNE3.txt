@@ -1,0 +1,113 @@
+#include<iostream>
+#include<array>
+#include<typeinfo>
+
+template<typename T>
+class Vec4
+{
+    private:
+    std::array<T, 4> core;
+    public:
+    std::array<T, 4>& Core = core;
+    T operator [](size_t idx)
+    {
+        return this->core[idx];
+    }
+    void Clear()
+    {
+        this->core.clear();
+    }
+    T* Begin()
+    {
+        return this->core.begin();
+    }
+    T* End()
+    {
+        return this->core.end();
+    }
+    Vec4() = default;
+    Vec4(T val) : core(val, val, val, val) {}
+    Vec4(const T& other) : core(other.Core) {}
+    Vec4(T val1, T val2, T val3, T val4)
+    {
+        this->core = {val1, val2, val3, val4};
+    }
+    Vec4(T&& other) : core(std::move(other).Core) {}
+    ~Vec4() = default;
+    void Print()
+    {
+        std::cout << this->core[0] << " " << this->core[1] << " " << this->core[2] << " " << this->core[3];
+    }
+    void PrettyPrint()
+    {
+       std::cout << "std::array<" << typeid(T).name() << ", 4>{ " << this->core[0] << ", " << this->core[1] << ", " << this->core[2] << ", " << this->core[3] << " }";
+    }
+};
+
+template<typename T, T setted>
+class Setter
+{
+public:
+    T& setting = setted;
+    T operator =(T val)
+    {
+        setting = val;
+        return setting;
+    }
+};
+
+template<typename T, typename... Args>
+class Singleton
+{
+public:
+    static Singleton Get()
+    {
+        return instance;
+    }
+    Singleton(const T& sth) = delete;
+    T (*Method)(Args... args);
+private:
+    Singleton() = default;
+    static Singleton instance;
+};
+template<typename T, typename... Args>
+Singleton<T, Args...> Singleton<T, Args...>::instance;
+
+class Example
+{
+private:
+    unsigned short x;
+public:
+    unsigned short& SetAndGetX = x;
+    void Print()
+    {
+        std::cout << this->x;
+    }
+};
+
+
+int main()
+{
+    Example ex;
+    ex.SetAndGetX = 4;
+    ex.Print();
+    std::cout << "\n";
+
+    ex.SetAndGetX = 6;
+    ex.Print();
+    std::cout << "\n";
+
+    std::cout << ex.SetAndGetX;
+    std::cout << "\n";
+
+    Vec4<unsigned short> v1(0, 1, 2, 3);
+    v1.Print();
+    std::cout << "\n";
+
+    v1.PrettyPrint();
+
+    auto& singleton = Singleton<void, Vec4<unsigned short>>::Get();
+    singleton.Method = &Vec4<unsigned short>::Print;
+    singleton.Method(v1);
+    return 0;
+}

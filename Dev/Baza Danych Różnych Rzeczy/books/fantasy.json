@@ -1,0 +1,41 @@
+{
+    "category": "books.fantasy",
+    "items": [
+        {
+            "name": "Władca Pierścieni",
+            "type": "trylogia",
+            "items": [
+                "Drużyna Pierścienia",
+                "Dwie Wierze",
+                "Powrót Króla"
+            ],
+            "author": {
+                "name": {
+                    "full": "John Ronald Reuel Tolkien",
+                    "aka": "J.R.R. Tolkien"
+                },
+                "reference": [
+                    "../../people/writers/XX-age/phantasy",
+                    "items[]"
+                }
+            },
+            "related": [
+                {
+                    "name": "Opowieści z Narnii",
+                    "reference": "/items[1]"
+                }
+            ]
+        },
+        {
+            "name": "Opowieści z Narnii",
+            "type": "septologia",
+            "items": [
+                "Lew, Czarownica i Stara Szafa",
+                "Książę Kaspian",
+                "Podróż Wędrowca Do Świtu",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "author": 

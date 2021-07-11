@@ -1,0 +1,9 @@
+index
+iterator
+sterownik
+deklaracja
+inicjalizacja
+definicja
+redefinicja
+
+rekurencja <-> iteracja

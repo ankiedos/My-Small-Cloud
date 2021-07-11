@@ -1,0 +1,146 @@
+prima aprillis
+Email::MIME
+CGI
+m4 HTML
+AML HTML
+
+unsigned short indentation = 0;
+std::string Indentation()
+{
+    std::string res = "";
+    for(unsigned short i = 1; i <= counter; i++) res += "\t";
+    return res;
+}
+// A HTML tag
+class Tag
+{
+public:
+    Tag(const std::string& ID = "", const std::string& Class = "", const std::string& Style = "")
+    {
+        this->ID = ID;
+        this->Class = Class;
+        this->Style = Style;
+    }
+    ~Tag() = default;
+    virtual std::string ToHTML() = 0;
+    void AddChild(const Tag& markup)
+    {
+        if(markup == nullptr) return;
+        elems.push_back(markup);
+    }
+    std::string ChildToHTML()
+    {
+        std::string res = "";
+        for(auto& elem : this->elems) res += i.ToHTML();
+        return res;
+    }
+    void AddText() { this->text = text; }
+    std::string ID;
+    std::string Style;
+    std::string Class;
+    std::vector<Tag> elems;
+};
+// <html lang="">
+class HTML : Tag
+{
+public:
+    HTML(const std::string& Lang = "")
+    {
+        this->ID = "";
+        this->Class = "";
+        this->Style = "";
+        this->Lang = Lang;
+    }
+    HTML(const Head& markup) { this->AddChild(markup); }
+    HTML(const Body& markup) { this->AddChild(markup); }
+    ~HTML() = default;
+    std::string ToHTML() override
+    {
+        ++indentation;
+        std::string res = "<html" + (this->Lang == "" ? "" : " lang=\"" + this->Lang + "\"") + ">\n" + Indentation() + this->ChildToHTML() + "</html>";
+        --indentation;
+        return res;
+    }
+    std::string Lang;
+};
+
+//<head>
+class Head : Tag
+{
+public:
+    Head() = default;
+    Head(const Tag& markup) { this->AddChild(markup);  }
+    ~Head() = default;
+    std::string ToHTML() override
+    {
+        ++indentation;
+        std::string res = "<head>\n" + Indentation() + this->ChildToHTML() + "</head>";
+        --indentation;
+        return res;
+    }
+};
+
+// <body id="" class="" style="">
+class Body : Tag
+{
+public:
+    Body(const std::string& ID, const std::string& Class, const std::string& Style)
+    {
+        this->ID = ID;
+        this->Class = Class;
+        this->Style = Style;
+    }
+    Body(const Tag& markup) { this->AddChild(markup); this->childs += markup.ToHTML(); }
+    Body(const std::string& text) { this->AddText(text); this->childs += text; }
+    ~Body() = default;
+    std::string ToHTML() override
+    {
+        ++indentation;
+        std::string attrs = (this->ID == "" ? "" : " id=\"" + this->ID + "\"") + (this->Class == "" ? "" : " class=\"" + this->Class + "\"") + (this->Style == "" ? "" : " style=\"" + this->Style + "\"");
+        std::string res = "<body" + attrs + ">\n" + Indentation() + this->childs + "</body>";
+        --indentation;
+        return res;
+    }
+    std::string childs = "";
+};
+
+//<h1 id="" class="" style="">
+class H1 : Tag
+{
+public:
+    H1(const std::string& ID = "", const std::string& Class = "", const std::string& Style = "")
+    {
+        this->ID = ID;
+        this->Class = Class;
+        this->Style = Style;
+    }
+    H1(const Tag& markup) { this->AddChild(markup); this->childs += markup.ToHTML(); 
+    H1(const std::string& text) { this->AddText(text); this->childs += text; }
+    H1(const std::string& ID, const std::string& Class, const std::string& Style = "")
+    {
+        this->ID = ID;
+        this->Class = Class;
+        this->Style = Style;
+    }
+    ~H1() = default;
+    std::string ToHTML() override
+    {
+        ++indentation;
+        std::string attr = (this->ID == "" ? "" : " id=\"" + this->ID + "\"") + (this->Class == "" ? "" : " class=\"" + this->Class + "\"") + (this->Style == "" ? "" : " style=\"" + this->Style + "\"");
+        std::string res  = "<h1" + attrs + ">\n" + Indentation() + this->childs + "</h1>";
+        --indentation;
+        return res;
+    }
+    std::string childs;
+};
+class H2 : Tag
+{
+public:
+    H2(const std::string& ID, const std::string& Class, const std::string& Style = "")
+    {
+        this->ID = ID;
+        this->Class = Class;
+        this->Style = Style;
+    }
+    H2()
+};

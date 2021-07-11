@@ -1,0 +1,34 @@
+meta com_string HASH
+meta bcom_string HASHHANDLE
+meta neq_op SLASH
+paste iostream
+use ns std
+#^ C++ Script ^#
+func var main() do
+	var x # = 0
+	print "Hello, World!"
+	x = 3 # valid
+	x = "x" # also valid
+	y = 2 # ERROR: line 12: Use of undeclared identifier!
+	rem # ERROR: line 13: `rem` option not enbled! Set `com_string` meta option to `REM`.
+	if x == "x" then
+		scan x
+	else if x == "y"
+		print "x != \"x\""
+	else if == "z"
+		print "x != \"y\""
+	else
+		print "Other options does not exist!"
+	endif
+	const y = 4 logand 2
+	log y
+	x = 1
+	until x =/= 2 do
+		var i = 0
+		unless i % 10 =/= 0
+			x += 1
+		endif
+		i += 1
+	end
+	ret 0
+end

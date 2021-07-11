@@ -1,0 +1,32 @@
+class zwierze
+{
+	unsigned short wiek;
+	enum MALEFEMALE { MALE, FEMALE, null };
+}
+class czlowiek : zwierze
+{
+private:
+	string imie;
+	string nazwisko;
+	int budzet;
+protected:
+	string email;
+public:
+	string zawod;
+	string zainteresowania;
+}
+class klient : czlowiek
+{
+protected:
+	string imie;
+	string nazwisko;
+public:
+	string wymagania;
+	unsigned short stawka_brutto;
+}
+unsigned short stopa_vat = 23;
+unsigned short stawka_netto = klient.stawka_brutto + (stopa_vat/100);
+class pieniadz
+{
+	enum WALUTA { ZL, EURO, DOLAR, FUNT, JEN, JUAN, null };
+	auto ZlNaEuro() { };

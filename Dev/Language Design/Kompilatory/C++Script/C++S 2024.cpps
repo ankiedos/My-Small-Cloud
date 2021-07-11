@@ -1,0 +1,22 @@
+meta comment HASH
+# Maybe also this?:
+def USE_REG_DEFINES
+# ----
+paste "langs\\ASM.hpps"
+paste "iostream.hpps"
+
+function int main() begin
+    with std do
+        int x = 0
+        scan x
+        with ASM do
+            mov eax, x ; "Copy x to eax"
+            add eax, 2 ; "Add 2 to eax"
+            mov x, eax ; "Copy eax to x"
+            xor eax, eax ; "Make eax be 0"
+            ret ; "Return value of eax"
+        end
+        print x, "\n" # x is now x + 2
+        ret 0 ASM.; "Return success"
+    end # ~~~~~~~~^~~ This is a function with [Attr(SameLine)] declaration (In C++Script 2027 comment statement (declaration: comment ;) don't have to be wrapped with ")
+end

@@ -1,0 +1,10 @@
+auto evn = [ ] (auto a) {a%2 == 0};
+auto odd = [ ] (auto a) {a%2 == 1};
+auto rltv_prm = [ ] (auto a, auto b) {(a%b) != 0};
+auto ngt = [ ] (auto a) {(a/-1) > 0};
+auto pst  = [ ] (auto a) {(a/-1) < 0};
+auto intgr = [ ] (auto a) {round(a) == a};
+auto flt = [ ] (auto a) {round(a) != a};
+auto dv3 = [ ] (auto a) {(a % 3) == 0};
+auto cngr_mod [ ] (auto a, auto b, auto c) {a % c == b % c};
+auto dvdn [ ] (auto a, auto b) {a % b == 0};

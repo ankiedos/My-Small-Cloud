@@ -1,0 +1,37 @@
+namespace - ns
+public - open
+private - close
+protected - mid
+#include - paste
+#define - def
+<type> - var
+:: - .
+print "Hello, ", "World!\n" - print("Hello, ", "World!\n")
+statement asdf, var arg1, var arg2
+begin
+    # ...
+end
+lub (nie wiem na razie co wybrać)
+statement asdf var arg1, var arg2
+begin
+    # ...
+end
+lub (nie wiem na razie co wybrać)
+statement asdf(var arg1, var arg2)
+begin
+    # ...
+end
+
+W stdLib będzie ASM
+statement unit mov const var& dest, const var& src # Lub inna składnia
+begin
+    dest = src
+end
+statement unit add const var& dest, const var& src # Lub inna składnia
+    dest += src
+end
+statement unit sub const var& dest, const var& src # Lub inna składnia
+begin
+    dest -= src
+end
+...

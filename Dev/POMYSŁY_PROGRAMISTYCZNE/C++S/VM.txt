@@ -1,0 +1,8 @@
+GET "libhdr" // stdlib
+
+LET start() = VALOF $(
+    writef("Hello, World!*N") // *N is \n
+    OTHERLANG "B" $(
+    $)
+    RESULTIS 0 // return 0
+$)

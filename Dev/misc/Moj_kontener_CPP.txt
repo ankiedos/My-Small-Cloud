@@ -1,0 +1,39 @@
+#include <vector>
+#include <iostream>
+template<typename T>
+class betterVector
+{	/** This is my contener which core is std::vector
+	* @param Cont -- core
+	* @param Begin() -- begin() function
+	* @param End() -- end() function
+	* @param Size() -- size() function
+	* @param AddBack() -- adds argument to the end
+	* @param arg -- argument for various functions
+	* @param AddFwd() -- adds argument to the front
+	std::vector<T> Cont;
+	// Constant Iterator Funcs
+	T Begin() const
+		return Cont[0];
+
+	T End() const
+		return Cont[Cont.size() - 1];
+
+	/* ----- Based on std::vector's functions ----- */
+	// Variable Iterator Funcs
+	T Size()
+		return (sizeof(Cont)/sizeof(Cont[0]));
+
+	// ----- Doing Stuff With Elems Funcs ----- // |
+	void AddBack(T arg)		            // |
+		Cont.push_back(arg);	            // |
+					            // |
+	T AddFwd(T arg)			            // |
+		Cont.push_forward(arg);             // |
+					            // |
+	T FuncNamePlaceHolder(T arg)	            // |
+	// ---------------------------------------------
+}
+int main()
+{
+	//prezentacja filozofia "4 przyczyny Arystotelesa"	
+}

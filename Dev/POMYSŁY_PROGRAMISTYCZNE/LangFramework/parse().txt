@@ -1,0 +1,36 @@
+if(Config::dynamic_language)
+{
+    class Type
+parse(const std::istream& prog)
+{
+    std::string line{};
+    std::string token{};
+    std::vector<std::string> program{};
+    char last_ch{};
+    while(std::getline(prog, line))
+    {
+        for(auto i = 0; i < line.size(); i++)
+        {
+            if(isspace(line[i]))
+            {
+                program.push_back(token);
+                token.clear();
+                continue;
+            }
+            if(!isalpha(line[i]) && !Config::not_standalone_tokens.find(line[i]))
+            {
+                if(program.back() != token && isalnum(last_ch))
+                {
+                    program.push_back(token);
+                    token.clear();
+                }
+                token += line[i];
+            }
+            if(!Config::leading_zeros_in_num && line[i] == '0' && isspace(last_ch) && isdigit(line[i + 1])) return ParseError("Leading zero detected!");
+            if(!Config::ids_can_start_with_digits && isdigit(line[i]) && !isdigit(line[i + 1]))
+            {
+                if(Config::literals_exist)
+                {
+                    if(!Config::literals_can_be_user_defined)
+                    for(auto j = i; j < line.size(); j++) if(line[j]Config::suffix_literals.find(
+            last_ch = i;

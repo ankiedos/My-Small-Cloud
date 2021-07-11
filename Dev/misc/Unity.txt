@@ -1,0 +1,42 @@
+srd :)
+F = (m_1m_2/r^2)G
+public class Attractor : MonoBehaviour
+{
+	RigidBody RigBody;
+	double V_Force;
+	double aux_Force;
+	Vector3 r;
+	Vector3 F;
+	double V_v;
+	Vector3 v;
+
+	static const decimal G = 6.67 * Math.Pow(10, -11);
+
+	SetForce(RigidBody Obj2)
+	{
+		r = RigBody.position - Obj2.position;
+		aux_Force = RigBody.mass * Obj2.mass * G;
+		F = aux_Force / Math.Pow(r, 2);
+		V_Force = F.length;
+		v = F / RigBody.mass;
+		
+	}
+}
+public
+a = dv/dt
+dt a = dv
+dt a = v - v_0
+dt a = v
+dt F/m = v
+
+Pani Baucz: jest tylko taki czarny kwadrat
+Szymon: to nie ja...
+Sprawdzanie obecności trwało jakieś 16,5 minuty
+gestosc mniejsza niz woda
+Bossa zaszczekała akurat gdy Paweł coś mówił
+symbolyzuje
+chroni skórę przed wysuchaniem
+   ___________________________________________
+___|____|_____|_____|_____|_____|______|_____|
+|____|_____|_____|_____|_____|______|_____|
+ 

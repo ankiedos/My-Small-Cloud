@@ -1,0 +1,2 @@
+Interpreted: array @ 3
+Other: array[3]

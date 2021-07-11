@@ -1,0 +1,81 @@
+class Base
+{
+public:
+    int x;
+    b(const int& x_) : x(x_) {}
+    ~b() = default;
+};
+class d1 : Base {};
+class d2 : Base {};
+class Final : d1, d2
+{
+public:
+    Final() { std::cout << d1::b::x << " " << d2::b::x; }
+    ~Final() = default;
+};
+
+
+#include<list>
+#include<iostream>
+class Communicator
+{
+protected:
+    unsigned short data;
+    std::list<unsigned short> history;
+public:
+    Communicator() = default;
+    Communicator(const unsigned short& data_) : data{data_} { history.append(data); }
+    ~Communicator() = default;
+};
+class Sender : virtual Communicator
+{
+public:
+    template<unsigned short... Args>
+    long double Average(Args... args)
+    {
+        unsigned short res{};
+        for(auto i = 0; i < sizeof(...Args) / sizeof(unsigned short); i++) res += args...;
+        return res / (sizeof(...Args) / sizeof(unsigned short));
+    }
+    template<unsigned short... Args>
+    unsigned short Send(Args... args)
+    {
+        Communicator::data = Average(args...);
+        Communicator::history.append(Communicator::data);
+        return Communicator::data;
+    }
+    Sender() = default;
+    ~Sender() = default;
+};
+class Receiver : virtual Communicator
+{
+    long double average;
+public:
+    long double Receive()
+    {
+        average = Communicator::data;
+        return average;
+    }
+    Receiver() = default;
+    ~Receiver() = default;
+};
+class App
+{
+public:
+    Sender sender{};
+    Receiver receiver{};
+    App()
+    {
+        sender.Send(1, 2, 3, 4, 5, 6);
+        std::cout << receiver.Receive() << "\n";
+    }
+    ~App() = default;
+private:
+    App(const App&) = delete;
+    App(App&&) = delete;
+};
+int main()
+{
+    App();
+    return 0;
+}

@@ -1,0 +1,4 @@
+assign g 5
+add g 2
+print g
+print x

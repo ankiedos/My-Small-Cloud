@@ -1,0 +1,4 @@
+#define CASE_SWITCH(keyword, branch_keyword, keyword_default) \
+case #keyword: \
+    ParseBranchExpr(#branch_keyword, #keyword_default); \
+    break;

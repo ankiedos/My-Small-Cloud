@@ -1,0 +1,31 @@
+master - główny branch na githubie ( stary)
+main - głowny branch na githubie
+
+git checkout - pozwala przełączać się między branchami
+-b tworzy nowy branch
+-D (nazwa brancha)
+git commit - tworzy zbiór z plików z komendy git add  
+--ammend (sprawdza ostatniego commita do sprawdzenia) 
+-m f commit w miejscu 
+git add (dodaje do commita plika żeby je spakować)
+-p  -i  pokazuje poszczegolne zmiany
+
+git push- wysyła do chmury
+git pull- przesyla z chmury
+
+git fetch - polecenie które pobiera branche, mastery
+--all (pobiera wszystkie branche)
+
+
+
+
+git checkout -- GildedRose.cc ( Resetuje do stanu z githuba(bezpiecznego))
+git reset GildedRose.cc (chyba to samo (ale uważać trzeba?))
+
+git diff  HEAD^(różnice ale nwm dokladnie jakie)
+
+git diff  HEAD(różnice)
+
+W domu
+Zrobić kate w taki sposób jaki potrafimy
+

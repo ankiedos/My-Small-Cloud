@@ -1,0 +1,19 @@
+#include <ostream>
+#include <regex>
+using namespace std;
+int main()
+{
+	int i=0;
+	string lancuch="";
+	cin>>lancuch;
+	while(true)
+	{
+		if(lancuch == "^[A-Za-z]?$")
+		{
+			lancuch += 'a';
+		}
+		else if(lancuch == "^[0-3]*[A-C]+[zxc]$")
+		{
+			lancuch += 'b';
+		}
+		else if(lancuch == "^p

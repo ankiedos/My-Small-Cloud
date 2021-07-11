@@ -1,0 +1,16 @@
+- C++S
+  - oprócz true, false, unknown:
+    - on, off
+    - yes, no
+    - active, (?)
+    - good, (bad|wrong)
+    - valid, invalid
+    - (?), none
+    - something, nothing
+- task
+- env (CGE)
+- MHD
+- ExtDict
+- ASMSim
+- lib++
+  - StaticString (constant-length)

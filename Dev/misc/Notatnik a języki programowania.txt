@@ -1,0 +1,5 @@
+Jak stworzyć program komputerowy bez posiadania żadnego środowiska, jak Code::Blocks, Repl.it, czy Notepad++?
+Proste.                         >;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>;>
+Użyj notatnika.
+#include <[biblioteka]>-C++
+import [biblioteka]--------Python

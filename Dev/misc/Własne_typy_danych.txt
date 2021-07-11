@@ -1,0 +1,35 @@
+class Int
+{
+public:
+	int value;
+	int operator=(Int int1, Int int2)
+	{
+		return int1.value = int2.value;
+	}
+	int operator+(Int a, Int b)
+	{
+		return a.value + b.value;
+	}
+	int operator-(Int a, Int b)
+	{
+		return a.value - b.value;
+	}
+	int operator>(Int a, Int b)
+	{
+		return a.value > b.value;
+	}
+	int max(Int a, Int b)
+	{
+		return ((a.value > b.value) ? (a : b));
+	}
+	int min(Int a, Int b)
+	{
+		return ((a.value < b.value) ? (a : b));
+	}
+	int sgn(Int a)
+	{
+		return ((a.value > 0) ? (1 : ((a < 0) ? (-1 : 0))));
+	}
+	int max_int()
+	{
+		return INT_MAX;

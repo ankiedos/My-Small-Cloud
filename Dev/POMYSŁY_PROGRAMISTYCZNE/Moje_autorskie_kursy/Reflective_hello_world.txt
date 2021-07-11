@@ -1,0 +1,21 @@
+// reflective_hello_world.cpp
+#include<nameof/nameof.hpp>
+#include<map>
+#include<iostream>
+
+class Example
+{
+public:
+    Example() = default;
+    Example(Example) : Example() { instances.emplace_back(NAMEOF(this), this); }
+    ~Example() = default;
+    ~Example(Example) { instances.erase(instances.find(NAMEOF(this))); ~Example(); }
+    static std::map<std::string, Example> instances;
+    uint8_t x = 0xA; // '\n'
+};
+int main(int argc, char** argv)
+{
+    Example ex{};
+    std::cout << "Hello, World!" << Example.instances["ex"].x;
+    return 0;
+}

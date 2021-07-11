@@ -1,0 +1,64 @@
+<NotepadPlus>
+    <UserLang name="ELR" ext="elr" udlVersion="2.1">
+        <Settings>
+            <Global caseIgnored="no" allowFoldOfComments="yes" foldCompact="yes" forcePureLC="0" decimalSeparator="1" />
+            <Prefix Keywords1="no" Keywords2="yes" Keywords3="no" Keywords4="no" Keywords5="no" Keywords6="no" Keywords7="no" Keywords8="no" />
+        </Settings>
+        <KeywordLists>
+            <Keywords name="Comments">00kom 01 02kom 03 04</Keywords>
+            <Keywords name="Numbers, prefix1">##</Keywords>
+            <Keywords name="Numbers, prefix2">0h 0b 0o</Keywords>
+            <Keywords name="Numbers, extras1">A B C D E F a b c d e f</Keywords>
+            <Keywords name="Numbers, extras2"></Keywords>
+            <Keywords name="Numbers, suffix1"></Keywords>
+            <Keywords name="Numbers, suffix2"></Keywords>
+            <Keywords name="Numbers, range">...</Keywords>
+            <Keywords name="Operators1">= + - * / % ! &amp;&amp; || | &amp; ^ ; &quot; &apos; ? &lt; &gt; &lt;= &gt;= == ===  != &lt;&lt; &gt;&gt; : :: . &amp; &lt;&gt; ( ) [ ] @ # ## ++ -- ** //</Keywords>
+            <Keywords name="Operators2">nowy nowy[] usun usun[] pierw -v- o x sin cos tg ctg sec cosec nat() nat_bez_z() calk calk_bez_z() calk_minus() rzeczyw() rzeczyw_plus() rzeczyw_bez_z() rzeczyw_minus() uroj() zesp() podw() kwaternion()&#x000D;&#x000A;bikwaternion() oktonion() sedenion() ciag_znakow() znak() logicz() zmienna() stala() funkcja() pustka() bajt() flaga() tab() lista() wektor() slownik() krotka() wyliczeniowy() strukt()&#x000D;&#x000A;</Keywords>
+            <Keywords name="Folders in code1, open">pocz</Keywords>
+            <Keywords name="Folders in code1, middle"></Keywords>
+            <Keywords name="Folders in code1, close">koniec rob</Keywords>
+            <Keywords name="Folders in code2, open">jesli to jesli_nie</Keywords>
+            <Keywords name="Folders in code2, middle">w_przec_razie to</Keywords>
+            <Keywords name="Folders in code2, close"></Keywords>
+            <Keywords name="Folders in comment, open">kom </Keywords>
+            <Keywords name="Folders in comment, middle"></Keywords>
+            <Keywords name="Folders in comment, close">kom</Keywords>
+            <Keywords name="Keywords1">jesli&#x000D;&#x000A;jesli_nie&#x000D;&#x000A;to&#x000D;&#x000A;w_przec_razie&#x000D;&#x000A;w_przec_razie_jesli&#x000D;&#x000A;w_przec_razie_jesli_nie&#x000D;&#x000A;wybor&#x000D;&#x000A;sytuacja</Keywords>
+            <Keywords name="Keywords2">@</Keywords>
+            <Keywords name="Keywords3">dolacz&#x000D;&#x000A;polacz_z&#x000D;&#x000A;uzywajac</Keywords>
+            <Keywords name="Keywords4">definiuj&#x000D;&#x000A;nat&#x000D;&#x000A;nat_bez_z&#x000D;&#x000A;calk&#x000D;&#x000A;calk_bez_z&#x000D;&#x000A;calk_minus&#x000D;&#x000A;rzeczyw&#x000D;&#x000A;rzeczyw_plus&#x000D;&#x000A;rzeczyw_bez_z&#x000D;&#x000A;rzeczyw_-&#x000D;&#x000A;uroj&#x000D;&#x000A;ciag_znakow&#x000D;&#x000A;znak&#x000D;&#x000A;logicz&#x000D;&#x000A;zmienna&#x000D;&#x000A;stala&#x000D;&#x000A;pustka&#x000D;&#x000A;bajt&#x000D;&#x000A;flaga&#x000D;&#x000A;</Keywords>
+            <Keywords name="Keywords5">gdy&#x000D;&#x000A;rob&#x000D;&#x000A;dla&#x000D;&#x000A;dla_kazdego&#x000D;&#x000A;w</Keywords>
+            <Keywords name="Keywords6">zesp&#x000D;&#x000A;podw&#x000D;&#x000A;kwaternion&#x000D;&#x000A;bikwaternion&#x000D;&#x000A;oktonion&#x000D;&#x000A;sedenion&#x000D;&#x000A;funkcja&#x000D;&#x000A;zwroc&#x000D;&#x000A;tab&#x000D;&#x000A;wyliczeniowy&#x000D;&#x000A;strukt</Keywords>
+            <Keywords name="Keywords7">Szablon&#x000D;&#x000A;Lista&#x000D;&#x000A;Wektor&#x000D;&#x000A;Slownik&#x000D;&#x000A;Krotka&#x000D;&#x000A;Macierz</Keywords>
+            <Keywords name="Keywords8">klasa&#x000D;&#x000A;konstrukt&#x000D;&#x000A;destrukt&#x000D;&#x000A;objekt&#x000D;&#x000A;przestrzen_nazw&#x000D;&#x000A;modul&#x000D;&#x000A;dziedziczy_z&#x000D;&#x000A;interfejs&#x000D;&#x000A;publicz&#x000D;&#x000A;prywat&#x000D;&#x000A;chroniony&#x000D;&#x000A;abstrakt&#x000D;&#x000A;wirtual&#x000D;&#x000A;zaprzyj&#x000D;&#x000A;</Keywords>
+            <Keywords name="Delimiters">00&quot; 01\&quot; 01\n 01\t 01\r 01\w 01\b 01\d 01\s 02&quot; 03&apos; 04\n 04\t 04\r 04\w 04\b 04\d 04\s 05&apos; 06dok_blokkom_p 06dok_kom 07dok_k 08dok_blokkom_k 08dok_kom 09blokkom_p 10(( k )) 11blokkom_k 12 13 14 15 16 17 18 19 20 21 22 23</Keywords>
+        </KeywordLists>
+        <Styles>
+            <WordsStyle name="DEFAULT" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="COMMENTS" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="LINE COMMENTS" fgColor="008000" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="2828" />
+            <WordsStyle name="NUMBERS" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS1" fgColor="FFFF00" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS2" fgColor="008080" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS3" fgColor="00FF40" bgColor="FFFFFF" fontName="" fontStyle="2" nesting="0" />
+            <WordsStyle name="KEYWORDS4" fgColor="FF0000" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS5" fgColor="000080" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS6" fgColor="FF0000" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS7" fgColor="00FF40" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS8" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="OPERATORS" fgColor="FF0000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE1" fgColor="000080" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE2" fgColor="FFFF00" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="FOLDER IN COMMENT" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS1" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="3598" />
+            <WordsStyle name="DELIMITERS2" fgColor="E3B000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="2575" />
+            <WordsStyle name="DELIMITERS3" fgColor="8080FF" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="2572" />
+            <WordsStyle name="DELIMITERS4" fgColor="008000" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="2572" />
+            <WordsStyle name="DELIMITERS5" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS6" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS7" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+        </Styles>
+    </UserLang>
+</NotepadPlus>

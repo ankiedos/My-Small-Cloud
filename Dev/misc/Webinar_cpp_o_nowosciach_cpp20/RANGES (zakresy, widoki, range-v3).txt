@@ -1,0 +1,47 @@
+ITERATORY
+input output forward bidirectional random access contiguous
+KONCEPTY
+range-zakres
+borrowed_range-bezpieczny iterator
+sized_range-rozmiar zakresu policzlny w stałym czasie
+view-stały czas kopiowania i przypisania
+
+input_range-iteerator odpowiadaającego typu
+output_range
+forward_range
+bidirectional_range
+random_access_range
+contiguous_range
+...
+common_range-iterator i strażnik są tego samego typu
+
+template<std::ranges::input_range Rng, typename Value, typename Proj=std::identity, typename...
+
+SKŁADANIE WIDOKÓW
+last(middle(first(v)))  -> v | first | middle | last
+
+WIDOKI
+take
+take_while
+drop
+drop_while
+
+RANGE-V3
+Działania
+take_last
+drop_last
+take_exactly
+drop_exactly
+
+unsigned long long Potega(int a, int e)
+{
+	int b=1;
+	while(b<=e)
+	{
+		b*=a;
+	}
+	return b;
+}
+
+
+Kod do 15% zniżki na www.sages.pl : 2WEBCPP15

@@ -1,0 +1,15 @@
+rozszerzenia do SASM:
+- StaticPlugin (nieoryginalna dystrybucja z pluginami)
+- DynamicPlugin (dodawanie przez opcję jakiegoś pluginu napisanego w skryptowym DLS-u)
+- instrukcja call
+- dyrektywa .import (albo trzeba będzie pisać call przy wywołaniach importowanych i nie trzeba pisać ścierzki, albo nie trzeba będzie call pisać)
+- makra
+
+struktura/klasa pluginów
+- nazwa
+- dokumentacja (dla opcji --help nazwa-plugina)
+- event (on_fileopen, on_format, on_tokenize, on_lex, on_parse, on_preproc, on_execution [<--bytecode or intermediate representation or sth else in VM or M], on_firstline, on_secondline, on_thirdline, on_instruction(instruction), on_token(token), on_parserule(rule), on_error, on_customerror(error), on_statement_begin, on_statement_end, on_symbol(symbol), on_compiled, on_interpreted, on_executed, on_fileclose, etc.)
+- autor
+- omówienie (krótka dokumentacja)
+- kategoria
+- kod (plugin statyczny -- albo lambda, albo ustalona funkcja; plugin dynamiczny -- ciąg znaków z kodem w skryptowym DSL-u)

@@ -1,0 +1,99 @@
+#include<list>
+#include<iostream>
+template<typename T>
+class Communicator
+{
+public:
+    static T data;
+    static std::list<T> history;
+
+    Communicator() = default;
+    // Communicator(const T&) = default;
+    ~Communicator() = default;
+};
+template<typename T>
+T Communicator<T>::data{};
+template<typename T>
+std::list<T> Communicator<T>::history{};
+template<typename C, typename T = long double>
+class Sender
+{
+    C<T> obj;
+public:
+    template<unsigned short... Args>
+    long double Send()
+    {
+        Communicator<T>::data = obj.Send<Args...>();
+        Communicator<T>::history.push_back(Communicator<T>::data);
+        return Communicator<T>::data;
+    }
+    Sender() = default;
+    ~Sender() = default;
+};
+template<typename T>
+class Receiver
+{
+    T data;
+public:
+    T Receive()
+    {
+        data = Communicator<T>::data;
+        return data;
+    }
+    Receiver() = default;
+    ~Receiver() = default;
+};
+template<typename T>
+class Math
+{
+public:
+    Math() = default;
+    ~Math() = default;
+    template<unsigned short First, unsigned short... Args>
+    unsigned short SumAll()
+    {
+        if constexpr(sizeof...(Args) > 0) return First + SumAll<Args...>();
+        else return First;
+    }
+    template<unsigned short First, unsigned short... Args>
+    T Average()
+    {
+        T res = static_cast<T>(SumAll<First, Args...>());
+        return res / (1 + (sizeof...(Args)/* / sizeof(unsigned short)*/));
+    }
+    template<unsigned short... Args>
+    T Send()
+    {
+        return Average<Args...>();
+    }
+};
+class App
+{
+public:
+    Sender<Math<long double>> sender{};
+    Receiver<long double> receiver{};
+    App() = default;
+    void exec()
+    {
+        sender.Send<1, 2, 3, 4, 5, 6>();
+        std::cout << "1, 2, 3, 4, 5, 6: " << receiver.Receive() << "\n";
+        // std::clog << "SumAll<1, 2, 3, 4, 5, 6>(): " << sender.SumAll<1, 2, 3, 4, 5, 6>() << "\n";
+        std::cout << "Communicator::data: " << Communicator<long double>::data << "\n";
+        sender.Send<1, 2, 3>();
+        std::cout << "1, 2, 3: " << receiver.Receive() << "\n";
+        std::cout << "Communicator<long double>::data: " << Communicator<long double>::data << "\n";
+        std::cout << "Communicator<long double>::history: ";
+        for(auto& i : Communicator<long double>::history) std::cout << i << ", ";
+        std::cout << "\b\b\n";
+    }
+    ~App() = default;
+private:
+    App(const App&) = delete;
+    App(App&&) = delete;
+};
+int main()
+{
+    App app;
+    app.exec();
+    return 0;
+}

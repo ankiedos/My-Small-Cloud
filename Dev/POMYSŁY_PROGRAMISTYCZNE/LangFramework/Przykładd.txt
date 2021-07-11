@@ -1,0 +1,38 @@
+#include<LangFramework/config.hpp>
+
+Config::dynamic_language{false};
+Config::ids_can_start_with_digits{false};
+Config::literals_exist{true};
+Config::literals_can_be_mixed{true};
+Config::suffix_literals{"f", "F", "u", "U", "l", "L", "ll", "Ll", "lL", "LL", "ld", "Ld", "lD", "LD", "ul", "Ul", "uL", "UL", "ull", "Ull", "ULl", "ULL", "uLl", "uLL", "ulL", "UlL", "i", "I"};
+Config::prefix_literals{"l", "L", "utf8", "Utf8", "UTf8", "UTF8", "uTf8", "uTF8", "utF8", "UtF8", "utf16", "Utf16", "UTf16", "UTF16", "uTf16", "uTF16", "utF16", "UtF16"};
+Config::literals_can_be_user_defined{true};
+Config::leading_zeros_in_num{false};
+Config::float_parts_can_be_omitted{true};
+Config::whitespace_sensitive{false};
+Config::not_standalone_tokens{'?', '`','\\'};
+Config::case_sensitive{true};
+
+enum class Token 
+{
+    ID, INTLITERAL, REALLITERAL, STRLITERAL, CHARLITERAL, BOOLLITERAL, NULL, PLUS, MINUS, MULT, DIV, MODULO, LPAREN, RPAREN, LSQRBRACE, RSQRBRACE, LCURBRACE, RCURBRACE,
+    ASSIGN, EQUAL, AMPERSAND, PIPE, AT, HASH, DOLLARSIGN, HANDLE, COLON, SEMICOLON, APOSTROPHE, QUOTE, TILDE, EXLAMATION, COMMA, LTRIBRACE, RTRIBRACE,
+    INT, REAL, STRING, CHAR, TERMINATOR
+};
+
+struct MyIntType : public lang::Types::IntType<32, MyIntType>
+{
+    using IntType<32, MyIntType>::IntType;
+    constexpr Token literal = Token::INTLITERAL;
+    constexpr Token keyword = Token::INT;
+    constexpr std::string str_keyword = "int";
+    using
+    MyIntLiteral val;
+    using IntType<32, MyIntType>::operator +, IntType<32, MyIntType>::operator -, IntType<32, MyIntType>::operator =, IntType<32, MyIntType>::operator *;
+};
+
+struct MyIntLiteral : lang::Types::Literal
+{
+    using Storage = MyIntType;
+    int val;
+    MyIntLiteral operator +(const MyIntLiteral& lit) { return MyIntLiteral{this->val + lit.val};

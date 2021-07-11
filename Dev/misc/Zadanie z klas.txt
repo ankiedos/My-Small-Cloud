@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <ranges>
+using namespace std;
+using namespace std::ranges;
+class Samochod
+{
+	char Rejestracja[4];
+
+	unsigned short moc_silnika;
+	float waga;
+	
+	enum BENZYNaDIESElELEKTRYCZNyHYBRYDA { B, D, E, H, null };
+	BENZYNaDIESElELEKTRYCZNyHYBRYDA rodzaj_silnika;
+	
+	Samochod()
+	{
+		Rejestracja = "";
+		moc_silnika = 0;
+		waga = 0;
+		rodzaj_silnika = null;
+	}
+}
+class katalogSamochodow : Samochod
+{
+	vector<Samochod> Samochody;
+	void Dodaj(auto Samochod)
+	{
+		Samochody += Samochod;
+	}
+	void Usun(Samochod ObjSamochod)
+	{
+		ObjSamochod;
+	}
+	void Wyswietl()
+	{
+		vector<char[4]> Rejestracje;
+		
+		cout << sort(Rejestracje);
+		
+		
+		List<unsigned short> lista_m;
+		cout << sort(lista_m.begin(), lista_m.end());
+	}
+}

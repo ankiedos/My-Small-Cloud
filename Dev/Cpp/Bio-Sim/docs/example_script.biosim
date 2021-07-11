@@ -1,0 +1,22 @@
+specie Homo habilis
+taxonomy:
+    kingdom: animals
+    super: Homo
+    sibling: Australopithecus
+    predeccessor: <sibling> (value of sibling)
+    successor: Homo erectus
+    (Is equivalent of: )
+    (specie animals.*.Homo.Homo habilis+Australopithecus
+    predeccessor: Australopithecus
+    successor: Homo erectus)
+quantity: 500 (pieces)
+traits:
+    eyes: green 50, blue 45, black 99, brown 306 (pieces)
+    height: 2 [meters] all
+    phenotype: 46 (pieces of chromosomes)
+    reproduction: heterogonial
+    avg: (average)
+        weight: 60 [kg]
+        height: 160 [cm]
+        BMI: 0.0023 [kg/{height}^2] (height unit)
+        brain-volume: 725 [cm^3]

@@ -1,0 +1,73 @@
+slackware sprawdzić co to znaczy
+piss of
+BASH
+if !"log.txt"
+	if !"err.txt"
+		create "log.txt"
+		create "err.txt"
+		while true
+			catch log
+			catch err
+			add(log, "log.txt")
+			add(err, "err.txt")
+		elihw
+	fi
+fi
+C++
+//Program logujacy i zwracajacy bledy
+/**
+* Antoni Kiedos
+* 13:43 26.10.2020
+* ARR
+**/
+#include <iostream>
+#include <vector>
+#include <ranges> //biblioteka w ktorej sa zakresy i range for
+using namespace std::ranges; //przestrzen nazw dla zakresow i petli range for
+int main()
+{
+	using namespace std;
+	clog<<"Poczatek punktu wejscia\n"; //log poczatku programu
+	int wybor=0; //Inicjalizacja zmiennej wybor
+	clog<<"DEFINED wybor\n"; //log definicji
+	switch(wybor)
+	{
+		case 1:
+			cout<<wybor<<endl;
+			clog<<"Wybor 1\n"; //log int wybor 1
+			break;
+		case 2:
+			cout<<wybor<<endl;
+			clog<<"Wybor 2\n"; //log int wybor 2
+			break;
+		case 3:
+			cout<<wybor<<endl;
+			clog<<"Wybor 3"<<endl; //log int wybor 3
+			break;
+		case 4:
+			cout<<wybor<<endl;
+			clog<<"Wybor 4"<<endl; //log int wybor 4
+			break;
+		default:
+			cerr<<"Nie ma takiej opcji"<<endl; //blad nie zdefiniowany case dla 1<wybor<4
+			clog<<"UNDEF BEHAVIOUR"<<endl; //log bledu
+			break;
+	}
+	clog<<"Wyjscie ze switcha\n"; //log wyjscia ze switcha
+	vector wektor=new vector<int>;
+	int i=0; //definicja i
+	while(i<=6) //petla while
+	{
+		clog<<"Petla while"<<endl;
+		wektor.add(i); //apetlone dodanie elementu do wektora
+		i++; //inkrementacja i
+	}
+	for(int element : wektor; element++)
+	{
+		cout<<wektor[element]<<endl;
+		clog<<"Zapetlone wyswietlenie elementow wektora w range forze"<<endl; //log petli range for
+	}
+	return 0; //zwrot 0, trzeba, inaczej nie skompiluje sie program UNN/USLSS :(
+}
+
+std::clog<<"To sie nie zloguje na stdlog-konsole"<<std::endl;

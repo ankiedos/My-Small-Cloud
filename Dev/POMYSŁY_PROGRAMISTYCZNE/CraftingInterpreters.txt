@@ -1,0 +1,379 @@
+bake [sth] right in
+
+package KiEnT.Core
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class Interpreter
+{
+  // Fields
+  static boolean is_err = false;
+
+
+  // Methods
+  /* Run... */
+  private static void RunFile(String path) throws IOException
+  {
+    byte[] bytes = Files.readAllBytes(Paths.get(path));
+    Run(new String(bytes, Charset.defaultCharset()));
+
+    // Indicate an error in the exit code.
+    if(is_err) System.exit(65);
+  }
+
+  private static void RunPrompt() throws IOException
+  {
+    InputStreamReader input = new InputStreamReader(System.in);
+    BufferedReader reader = new BufferedReader(input);
+
+    for(;;)
+    { 
+      System.out.print("> ");
+      String line = reader.readLine();
+      
+      if (line == null) break;
+      Run(line);
+      is_err = false;
+    }
+  }
+
+  private static void Run(String source)
+  {
+    Scanner scanner = new Scanner(source);
+    List<Token> tokens = scanner.scanTokens();
+
+    // For now, just print the tokens.
+    for(Token token : tokens)
+    {
+      System.out.println(token);
+    }
+  }
+
+  /* Error Handling */
+  private static void Report(int line, String where, String message)
+  {
+    System.err.println(
+        "[line " + line + "] Error" + where + ": " + message);
+    is_err = true;
+  }
+  static void Error(int line, String message)
+  {
+    Report(line, "", message);
+  }
+
+
+  /* Main */
+  public static void Main(String[] args) throws IOException
+  {
+    if (args.length > 1)
+    {
+      System.out.println("Usage: Interpreter [script]");
+      System.exit(64); 
+    }
+    else if (args.length == 1)
+    {
+      RunFile(args[0]);
+    }
+    else
+    {
+      RunPrompt();
+    }
+  }
+}
+
+
+///New File
+package KiEnT.Core.Tokens.Types;
+enum TokenType
+{
+  // Single-character tokens.
+  LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE,
+  COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR,
+
+  // One or two character tokens.
+  BANG, BANG_EQUAL,
+  EQUAL, EQUAL_EQUAL,
+  GREATER, GREATER_EQUAL,
+  LESS, LESS_EQUAL,
+
+  // Literals.
+  IDENTIFIER, STRING, NUMBER,
+
+  // Keywords.
+  AND, CLASS, ELSE, FALSE, FUN, FOR, IF, NULL, OR,
+  PRINT, RETURN, SUPER, THIS, TRUE, VAR, WHILE, INT, NAT
+
+  EOF
+}
+
+
+
+/// New File
+package KiEnT.Core.Tokens;
+
+import KiEnT.Core.Tokens.Types;
+
+class Token
+{
+  final TokenType type;
+  final String lexeme;
+  final Object literal;
+  final int line; 
+
+  Token(TokenType type, String lexeme, Object literal, int line)
+  {
+    this.type = type;
+    this.lexeme = lexeme;
+    this.literal = literal;
+    this.line = line;
+  }
+
+  public String ToString()
+  {
+    return type + " " + lexeme + " " + literal;
+  }
+}
+
+
+/// New File
+package KiEnT.Core.Scanner;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static KiEnT.Core.*;
+
+class Scanner
+{
+  private final String source;
+  private final List<Token> tokens = new ArrayList<>();
+  private int start = 0;
+  private int current = 0;
+  private int line = 1;
+
+  private static final Map<String, TokenType> keywords;
+
+  static
+  {
+    keywords = new HashMap<>();
+    keywords.put("and",    AND);
+    keywords.put("class",  CLASS);
+    keywords.put("else",   ELSE);
+    keywords.put("false",  FALSE);
+    keywords.put("for",    FOR);
+    keywords.put("fun",    FUN);
+    keywords.put("if",     IF);
+    keywords.put("null",    NULL);
+    keywords.put("or",     OR);
+    keywords.put("print",  PRINT);
+    keywords.put("return", RETURN);
+    keywords.put("super",  SUPER);
+    keywords.put("this",   THIS);
+    keywords.put("true",   TRUE);
+    keywords.put("var",    VAR);
+    keywords.put("intgr",  INT);
+    keywords.put("nat",    NAT);
+    keywords.put("while",  WHILE);
+  }
+
+  //----------------------------------------------------
+  Scanner(String source)
+  {
+    this.source = source;
+  }
+
+  List<Token> ScanTokens()
+  {
+    while(!IsAtEnd())
+    {
+      // We are at the beginning of the next lexeme.
+      start = current;
+      ScanToken();
+    }
+
+    tokens.add(new Token(EOF, "", null, line));
+    return tokens;
+  }
+
+  private void ScanToken()
+  {
+    char c = Advance();
+    switch(c)
+    {
+      case '(': AddToken(LEFT_PAREN); break;
+      case ')': AddToken(RIGHT_PAREN); break;
+      case '{': AddToken(LEFT_BRACE); break;
+      case '}': AddToken(RIGHT_BRACE); break;
+      case ',': AddToken(COMMA); break;
+      case '.': AddToken(DOT); break;
+      case '-': AddToken(MINUS); break;
+      case '+': AddToken(PLUS); break;
+      case ';': AddToken(SEMICOLON); break;
+      case '*': AddToken(STAR); break;
+      case '!':
+        AddToken(Match('=') ? BANG_EQUAL : BANG);
+        break;
+      case '=':
+        AddToken(Match('=') ? EQUAL_EQUAL : EQUAL);
+        break;
+      case '<':
+        AddToken(Match('=') ? LESS_EQUAL : LESS);
+        break;
+      case '>':
+        AddToken(Match('=') ? GREATER_EQUAL : GREATER);
+        break;
+      case '/':
+        if(Match('/'))
+        {
+          // A comment goes until the end of the line.
+          while(Peek() != '\n' && !IsAtEnd()) Sdvance();
+        }
+        else
+        {
+          AddToken(SLASH);
+        }
+        break;
+
+      // Ignore whitespaces.
+      case ' ':
+      case '\r':
+      case '\t':
+        break;
+      case '\n':
+        line++;
+        break;
+
+      case '"': String(); break;
+
+      default:
+        if(IsDigit(c))
+        {
+          Number();
+        }
+	else if(IsAlpha(c))
+	{
+          Identifier();
+        }
+        else
+	{
+          Interpreter.Error(line, "Unexpected character.");
+        }
+	break;
+    }
+  }
+
+  private void Identifier()
+  {
+    while(IsAlphaNumeric(Peek())) Advance();
+
+    String text = source.substring(start, current);
+    TokenType type = keywords.get(text);
+
+    if(type == null) type = IDENTIFIER;
+    AddToken(type);
+  }
+
+  private void Number()
+  {
+    while(IsDigit(Peek())) Advance();
+
+    // Look for a fractional part.
+    if(Peek() == '.' && IsDigit(PeekNext())) {
+      // Consume the "."
+      Advance();
+
+      while(IsDigit(Peek())) Advance();
+    }
+
+    AddToken(NUMBER,
+        Double.parseDouble(source.substring(start, current)));
+  }
+
+  private void String() {
+    while(Peek() != '"' && !IsAtEnd()) {
+      if(Peek() == '\n') line++;
+      Advance();
+    }
+
+    if(IsAtEnd()) {
+      Interpreter.Error(line, "Unterminated string.");
+      return;
+    }
+
+    // The closing ".
+    Advance();
+
+    // Trim the surrounding quotes.
+    String value = source.substring(start + 1, current - 1);
+    AddToken(STRING, value);
+  }
+
+
+  private boolean Match(char expected)
+  {
+    if(IsAtEnd()) return false;
+    if(source.charAt(current) != expected) return false;
+
+    current++;
+    return true;
+  }
+
+  private char Peek()
+  {
+    if(isAtEnd()) return '\0';
+    return source.charAt(current);
+  }
+
+  private char PeekNext()
+  {
+    if(current + 1 >= source.length()) return '\0';
+    return source.charAt(current + 1);
+  }
+
+  private boolean IsAlpha(char c)
+  {
+    return (c >= 'a' && c <= 'z') ||
+           (c >= 'A' && c <= 'Z') ||
+            c == '_';
+  }
+
+  private boolean IsAlphaNumeric(char c)
+  {
+    return IsAlpha(c) || IsDigit(c);
+  }
+
+  private boolean IsDigit(char c)
+  {
+    return c >= '0' && c <= '9';
+  }
+  
+  private boolean IsAtEnd()
+  {
+    return current >= source.length();
+  }
+
+  private char Advance()
+  {
+    current++;
+    return source.charAt(current - 1);
+  }
+
+  private void AddToken(TokenType type)
+  {
+    AddToken(type, null);
+  }
+
+  private void AddToken(TokenType type, Object literal)
+  {
+    String text = source.substring(start, current);
+    tokens.add(new Token(type, text, literal, line));
+  }
+}

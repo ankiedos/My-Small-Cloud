@@ -1,0 +1,5 @@
+% - format operator
+lhs <- rhs - lhs jest wskaźnikiem na rhs
+lhs << rhs - rhs jest nowym członkiem obiektu lhs
+lhs <<- rhs - równoważne do: lhs << rhs i następującego: lhs <- lhs.rhs (rhs jest domyślnym członkiem obiektu rhs, ponieważ lhs na niego wskazuje)
+jak zaimplementować możliwość kilku poleceń w jednej linii? Przy funkcjach z [Attr(SameLine)]? Takie rzeczy jak `and then` odpadają

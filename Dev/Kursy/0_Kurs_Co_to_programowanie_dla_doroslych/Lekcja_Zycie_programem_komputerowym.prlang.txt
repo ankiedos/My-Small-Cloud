@@ -1,0 +1,32 @@
+lang = "Pseudokod"
+simil_to = "ELR, MELR"
+
+dolacz wech.melr
+dolacz wzrok.melr
+dolacz smak.melr
+dolacz sluch.melr
+dolacz dotyk.melr
+dolacz rownowaga.melr
+dolacz instynkt.melr
+kom -------------------------- kom
+dolacz rozrywka.elr
+dolacz odruchy.melr
+dolacz odruchy.elr
+dolacz miesnie.melr
+dolacz kalkulator.elr
+
+kom Pies kom
+kom Nazywam to Emocjowym Językiem Zwrotów  (ang. Emotional Language of Returns, ELR) kom
+kom Ale sluch, wech, wzrok itd. są w MELR-u (ang. Machine ELR, Maszynowy EJZ)
+
+jesli zabawa to                                              kom Oczywiście zabawa była już wcześniej zdefiniowana w pliku rozrywka.elr kom
+  jesli Zabawa.DeltaData >= duzo to                                                  kom Tak samo duzo w kalkulator.elr kom
+    WykonujSynchronicznie(MachajOgonem(), MachajZadkiem())  komblok_p WykonujAsynchronicznie() z miesnie.melr ; MachajOgonem()
+  w_przec_razie					     k i MachajZadkiem() w odruchy.elr komblok_k
+    MachajOgonem()
+jesli ... to
+  ...
+w_przec_razie_jesli ... to
+  ...
+w_przec_razie
+  ...

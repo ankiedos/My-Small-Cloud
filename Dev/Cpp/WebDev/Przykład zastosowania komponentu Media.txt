@@ -1,0 +1,7 @@
+<Media type="youtube" video_id="bWjpoYJLuw8" alt="DOMOWY TRENING Z HANTLAMI (10 minut) - Alsquad" title="DOMOWY TRENING Z HANTLAMI (10 minut)" author="Alsquad" />
+<!-- <div>
+         <strong>DOMOWY TRENING Z HANTLAMI (10 minut)</strong>
+         Autor: <strong><a href="https://www.youtube.com/channel/UC53jELjeKzpG5nWvxQscqTA">Alsquad</a></strong>
+         <iframe src="https://www.youtube.com/watch?v=bWjpoYJLuw8" width="SOME_YT_SPECIFIC_VALUE" height="ANOTHER_YT_SPECIFIC_VALUE" />
+     </div>
+-->

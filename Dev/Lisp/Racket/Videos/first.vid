@@ -1,0 +1,6 @@
+#lang video
+;(clip "spinning_square.mp4"
+;      #:start 0 #:end 4)
+;(attach-filter (clip "spinning_square.mp4"
+;                     #:start 0 #:end 4) (grayscale-filter))
+(color "green")

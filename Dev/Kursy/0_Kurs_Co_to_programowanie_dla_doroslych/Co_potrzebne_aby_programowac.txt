@@ -1,0 +1,9 @@
+Od strony IDE:
+- Debugger----do debugowania
+- Linker (Konsolidator)----do bibliotek, aby ich nie trzeba było dołączać do projektów ciągle
+- Builder----w parze z kompilatorem tworzy *.exe
+Od strony języka:
+- Kompilator/Interpreter/Transpilator----składnia
+- Parser----gramatyka
+- Lekser----semantyka
+- Tokenizer----słowa kluczowe

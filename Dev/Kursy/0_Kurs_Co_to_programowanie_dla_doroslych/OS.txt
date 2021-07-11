@@ -1,0 +1,156 @@
+Pmięć w trybie chronionym
+
+Nagłówek ma format:
+
+word - 8*ilosc_wpisow-1
+dword - fizyczne położenie GDT w pamięci
+
+Selektor jest to po prostu numer segmentu w GDT lub LDT (wyjaśnię później) zawierający dodatkowe informacje.
+Numer selektora liczy się następująco:
+selektor = (numer_w_GDT*8)+poziom_uprzywilejowania+(4 jeśli to selektor z LDT)
+Więc np. nasz segment kodu ma poziom uprzywilejowania 3 a numer deskryptora w tablicy GDT to selektor=2*8+3=19=0x13.
+Gdyby to był selektor w LDT, to jego wartość wynosiłaby 0x17. Adres tablicy GDT jest pamiętany w specjalnym rejestrze procesora GDTR.
+Rejestr ten nie jest dostępny bezpośrednio. Można go załadować rozkazem asemblerowym:
+lgdt rejestr lub adres w pamięci
+np.:
+lgdt [eax]
+lgdt [tablica_gdt]
+
+Aby zapamiętać wartość GDTR, należy użyć rozkazu sgdt, np.:
+sgdt edi
+sgdt [stara_tablica_gdt]
+
+Teraz pora na format wpisu do GDT. Pokażę wpis jako parę liczb 32-bitowych. Format dla segmentów KODU i DANYCH
+Kod:
+31 0 
+-------------------------------------------------------------------------    --------------
+| Baza 31..24 | G | X | O | A | Limit   | P | DPL | 1 | TYP | A | BAZA 23..16| 
+|                      |     |     |     | V | 19..16|    |         |     |         |    |                      | 
+|                      |     |     |     | L |            |    |         |     |         |    |                      | 
+-------------------------------------------------------------------------    --------------
+| Baza                        | Limit                                                                          |
+| 15..0                        | 15..0                                                                         |
+-------------------------------------------------------------------------    --------------
+Format dla specjalnych segmentów systemowych
+Kod:
+31 0 
+-------------------------------------------------------------------------     -----------------
+| Baza 31..24 | G | X | O | A | Limit   | P | DPL | 0 | TYP | A | BAZA 23..16   | 
+|                      |     |     |     | V | 19..16|    |         |     |         |    |                         | 
+|                      |     |     |     | L |            |    |         |     |         |    |                         | 
+-------------------------------------------------------------------------     ----------------- 
+| Baza                        | Limit                                                                            | 
+| 15..0                        | 15..0                                                                            | 
+-------------------------------------------------------------------------     -----------------
+A - czy odwołano się do segmentu
+AVL - czy segment jest dostępny dla programisty
+DPL - poziom uprzywilejowania deskryptora
+G - granularność
+P - segment dostępny
+
+LDT różni się tylko tym od GDT, że musi mieć swój wpis w GDT, tzn. w GDT musi być wydzielony selektor dla LDT.
+Tablicę LDT ładuje się rozkazem lldt, np.
+mov ax,0x18 
+lldt ax
+
+Teraz przykładowa tablica GDT (w assemblerze):
+gdt_descr: 
+dw 5*8-1 
+dd gdt
+gdt: 
+dd 0,0 ;NULL Descriptor 
+dd 0x0000FFFF,0x00CF9A00 ;Deskryptor kodu (baza: 0, limit: 4GB, DPL:0) 
+dd 0x0000FFFF,0x00CF9200 ;Deskryptor danych (baza: 0, limit: 4GB, DPL:0) 
+dd 0x0000FFFF,0x00CFFA00 ;Deskryptor kodu (baza: 0, limit: 4GB, DPL:3) 
+dd 0x0000FFFF,0x00CFF200 ;Deskryptor danych (baza: 0, limit: 4GB: DPL:3)
+
+Można teraz napisać:
+lgdt [gdt_descr]
+i już mamy załadowaną nową tablicę. Oczywiście w trybie rzeczywistym musimy przeliczyć sobie adres naszego gdt, aby załadować. Przykład:
+
+xor eax,eax 
+mov ax,ds 
+shl eax,4 
+or ax,gdt_descr 
+lgdt [eax]
+
+Teraz jeszcze jedna ważna rzecz: gdy chcemy ustawić limit segmentu, pamiętajmy, że limit np. 4GB to 0xFFFFF, 1MB to 0xFFF.
+Po załadowaniu GDT należy opróżnić, tzw. prefetch queue w procesorze. Można to zrobić, np. instrukcją ret. Można napisać np.:
+lgdt [gdt_descr] 
+push dword po_gdt 
+ret 
+po_gdt: 
+; Tutaj dalszy ciąg programu
+
+Przykładowe funkcje w C:
+/* Ta funkcja ustawia adres bazowy segmenty. Jako desc należy podać wskaźnik do wpisu w GDT, jake base, należy podać adres bazowy segmentu 
+*/ 
+void set_descriptor_base(unsigned long * desc,unsigned long base) 
+{ 
+desc[0]&=0x0000FFFF; 
+desc[0]|=(base<<16); 
+base&=0xFFFF0000; 
+desc[1]|=((base>>16)&0xFF)|(base&0xFF000000); 
+} 
+/* Ta funkcja ustawia limit segmentu */ 
+void set_descriptor_limit(unsigned long * desc,unsigned long limit) 
+{ 
+desc[0]&=0xFFFF0000; 
+desc[0]|=(limit&0x0000FFFF); 
+desc[1]&=0xFFFFFFF0; 
+desc[1]|=limit>>16)&0xF; 
+}
+
+Dostęp do rejestru CR3 (jak i innych rejestrów sterowania) można uzyskać tylko za pomocą innego rejestru, więc aby zmienić wartość CR3,
+należy załadować tą wartość do, np. eax a potem z eax do cr3. Aby odblokować stronnicowanie można użyć poniższej procedury:
+mov eax,adres_do_katalogu_stron 
+mov cr3,eax 
+mov eax,cr0 
+or eax,0x80000000 
+mov cr0,eax 
+jmp PgEnabled 
+PgEnabled:
+
+Teraz wyjaśnię, jak obliczać adres do wpisu w katalogu stron i tablic stronnicowania, który ma każda strona. Przykładowy program w C:
+int pobierz_adres_w_pgd(unsigned long addr) 
+{ 
+return addr>>22; 
+} 
+int pobierz_adres_w_pte(unsigned long addr) 
+{ 
+return (addr>>12)&4095; 
+}
+
+Teraz bardziej zaawansowany przykład:
+extern unsigned long pgdir[]; /* Tutaj jest nasz katalog stron */ 
+unsigned long wskaznik_na_pte(unsigned long addr) 
+{ 
+return pgdir[addr>>24]; /* (addr>>22)>>2 bo tablica pgdir ma elementy typu long o rozmiarze 4 */ 
+} 
+unsigned long * wskaznik_w_pte(unsigned long addr) 
+{ 
+unsigned long * pte; 
+pte=(unsigned long *)wskaznik_na_pte(addr); /* Tutaj pobieramy wskaźnik z katalogu stron do interesującej nas tablicy stron */ 
+if(!((*pte)&1)) return NULL; /* Sprawdzamy, czy tablica stron istnieje */ 
+return pte+((addr>>12)&4095); /* Tutaj pobieramy wskaźnik do wpisu w PTE */ 
+}
+Pobieramy wskaźnik do wpisu w tablicy stron, aby móc później zmodyfikować zawartość wpisu.
+Jeśli chcielibyśmy tylko pobrać zawartość wpisu, to funkcja miałaby postać:
+unsigned long wpis_w_pte(unsigned long addr) 
+{ 
+unsigned long * pte; 
+pte=(unsigned long *)wskaznik_na_pte(addr); /* Tutaj pobieramy wskaźnik z katalogu stron do interesującej nas tablicy stron */ 
+if(!((*pte)&1)) return NULL; /* Sprawdzamy, czy tablica stron istnieje */ 
+return pte[((addr>>12)&4095)]; /* Tutaj pobieramy wartość wpisu w PTE */ 
+}
+Jak już wspominałem, bity 0-11 we wpisach są zarezerwowane dla informacji, które wykorzysta procesor.
+Dla wpisu do katalogu stron przeważnie używa się tylko 3 bity (tutaj podaję od razu wartości 1<<bit):
+0x01 - czy strona jest obecna 
+0x02 - czy stronę można zapisać 
+0x04 - poziom uprzywilejowania strony (przeważnie ustawia się ten bit także dla kernela)
+Dla wpisu do katalogu stron są ww. bity oraz jest kilka dodatkowych:
+0x20 - czy na stronie wykonano jakąś operację (zapis, odczyt, wykonanie kodu) 
+0x40 - czy do strony coś zapisano
+Bity 0x200,0x400,0x800 są dostępne dla użytkownika. Reszta nieomównionych bitów musi mieć wartość zero
+(czyli bity 0x08,0x10,0x80,0x100); tak pisze Intel w swojej dokumentacji.
+

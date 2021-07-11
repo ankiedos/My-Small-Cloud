@@ -1,0 +1,7 @@
+repo;workflow;gist: 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
+"Notifications":
+repo:workflow;gist;read:org;read:repo_hook;notifications;user: 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
+"Packages":
+repo;workflow;packages;admin:repo_hook;admin:org_hook;gist;notifications;user;discussions: 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
+"Secret":
+all: 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

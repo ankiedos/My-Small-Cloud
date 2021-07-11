@@ -1,0 +1,20 @@
+ODWZOROWANIA
+{ile} count({zakres}, {wartość}, {odwzorowanie})
+
+using namespace std;
+std::ranges::sort(v, std::less<>{}, &Person::age);
+auto sum=ranges::accumulate(v, 0u, std::plus<>{}, &Person::age);
+0u-zacznij od zera bez naku
+
+IMPLEMENTACJA std::accumulate
+#include<functional>
+#include <numerics>
+#include <ranges>
+
+auto accumulate(auto &&r, auto init, auto pred=std::plus<>{}, auto proj=std::identity{})
+{
+return std::accumulate( std::ranges::begin(r), std::ranges::end(r), init, [&](auto result, const auto &element){ return std::invoke(pred, result, std::invoke(proj,element));});
+}
+
+SKRÓTY PRZESTRZENI NAZW
+namespace x=<nazwa_istniejącej przestrzeni nazw>;

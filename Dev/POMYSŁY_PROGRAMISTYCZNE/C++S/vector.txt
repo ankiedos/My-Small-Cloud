@@ -1,0 +1,66 @@
+ns cpp
+begin
+    ns std
+    begin
+        template<typename _Ty, typename _Allocator = allocator<T>>
+        class vector
+        begin
+            size_t _size;
+            ptr T _arr;
+        open:
+            function bool empty() const noexcept
+            begin
+                return _size == 0
+            end
+            function size_t size() const noexcept
+            begin
+                return _size
+            end
+            function ref T at(const ref size_t _idx)
+            begin
+                if _idx >= _size then
+                    throw index_out_of_range("Index out of range!")
+                else return _arr[_idx]
+                endif
+            end
+            function const ref T at(const ref size_t _idx) const
+            begin
+                if _idx >= _size then
+                    throw index_out_of_range("Index out of range!")
+                else return _arr[_idx]
+                endif
+            end
+            ref T operator [](const ref size_t _idx) noexcept
+            begin
+                return _arr[_idx]
+            end
+            const ref T operator [](const ref _idx) const noexcept
+            begin
+                return _arr[_idx]
+            end
+            struct iterator
+            begin
+                ref T operator ++() 
+                begin
+                    return ++_val
+                end
+                T operator ++()
+                begin
+                    return _val++
+                end
+                ref T operator *()
+                begin
+                    return ptr _val
+                end
+                ref T operator =(const ref iterator _other)
+                begin
+                    _val = _other._val
+                    return ptr this
+                end
+                ref T operator =(ref ref iterator _other)
+                begin
+                    _val = move(_other._val)
+                    return ptr this
+                end
+            closed:
+                T* _val

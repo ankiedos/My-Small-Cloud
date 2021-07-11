@@ -1,0 +1,23 @@
+1. 60 Mb/s * 1h = 60 Mb/s * 3600 s = 60 * 3600 Mb = 216000 Mb = 27000 MB = 27 GB
+
+2. 1 GB/10 Mb/s = 1000 MB/10/8 MB/s = 1000 * (8/10) s = 100 * 8 s = 800 s = 800/60 min = 13 min 20 s
+
+3. 4,7 GB/15 Mb/s = 4,7 * 1000 * 8 Mb/ 15 Mb/s = 4700 * 8 /15 s = 37600 /15 s = 2506,(6) s = 41 min 46,(6) s
+
+4. 25 Mb/s * 30 min = 25 Mb/s * 1800 s = 45000 Mb = 5625 MB
+
+5. 30 GB/3 h = 10 GB/h = 80 Gb/h = 80/3600 Gb/s = 8/360 Gb/s = 2/90 Gb/s = (2/9)/10 Gb/s = 0,0(2) Gb/s = 22,(2) Tb/s
+
+6. 10 Mb/s * 1 h = 10 Mb/s * 3600 s = 36000 Mb = 36 Gb = 4,5 GB
+
+7. 4 GB/10Mb/s = 4000 MB/10 Mb/s = 32000 Mb/10 Mb/s = 3200 Mb = 400 MB
+
+8. 1 Gb/s * 1 h = 1 Gb/s * 3600 s = 3600 Gb = 450 GB
+
+9. 20 GB/2 Mb/s = 20 GB/16 MB/s = 20000 MB/16 MB/s = 1250 s = 20 min 50 s
+
+10. Nie wiem czy Pan napisał przez pomyłkę 2 MB/s czy nie, więc jeśli chodziło Panu o Mb/s:
+12 MB/2 Mb/s = 12 MB/0,25 MB/s = 12 * 4 s = 48 s
+
+A jeśli to miały być 2 MB/s:
+12 MB/2 MB/s = 6 s

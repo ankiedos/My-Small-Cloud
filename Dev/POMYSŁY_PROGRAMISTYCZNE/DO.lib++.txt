@@ -1,0 +1,4 @@
+ankiedos::Interface::Maker mak = ankiedos::Interface::Maker(ankiedos::Interface::Maker::Resposibility::Math);
+ankiedos::Interface::Maker::SAX sax_client(mak);
+unsigned hashed_3 = mak("hash", 3u);
+std::cout << sax_client; // Output: ankiedos::Interface::Maker mak: responsible for: math, (operation: hash, argument: 3u)

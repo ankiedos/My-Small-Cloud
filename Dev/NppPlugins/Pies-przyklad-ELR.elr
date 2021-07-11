@@ -1,0 +1,45 @@
+kom Zmysły
+dolacz >wech.melr
+dolacz >wzrok.melr        
+dolacz >smak.melr
+dolacz >sluch.melr
+dolacz >dotyk.melr
+dolacz >rownowaga.melr
+dolacz >instynkt.melr
+kom Reszta
+dolacz >czynnosci_zyciowe.melr
+dolacz >odruchy.melr
+dolacz >miesnie.melr
+kom --------------------------
+dolacz >>rozrywka.elr
+dolacz >>odruchy.elr
+dolacz >>kalkulator.elr
+dolacz >><zachowanie.elrlib>
+kom --------------------------------------------------------------------------------------------------------
+polacz_z ^miesnie..zadek, ^miesnie..ogon, ^pamiec..dlugotrwala, ^pamiec..krotkotrwala, ^oko..lewe, ^oko..prawe
+kom -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+dok_kom Pies dok_kom
+dok_kom Nazywam to Emocjowym Językiem Zwrotów  (ang. Emotional Language of Returns, ELR) dok_kom
+dok_kom Ale sluch, wech, wzrok itd. są w MELR-u (ang. Machine ELR, Maszynowy EJZ) dok_kom
+
+kom Przykład pętli i funkcji kom
+definiuj funkcja nat_bez_z ZachowaniePsa(strukt Ojciec.zachowanie, strukt Matka.zachowanie)
+pocz
+	dla_kazdego(strukt Zachowanie w Ojciec.zachowanie && strukt Zachowanie_matki w Matka.zachowanie)  kom Ojciec.Zachowanie i Matka>Zachowanie z zachowanie.elrlib
+	pocz
+		zwroc (Ojciec.zachowanie.Zachowanie + Matka.zachowanie.Zachowanie_matki) / 2
+	koniec
+koniec
+kom Instrukcja warunkowa kom
+jesli zabawa to                                              kom Oczywiście zabawa była już wcześniej zdefiniowana w pliku rozrywka.elr kom
+	jesli Zabawa.DeltaData >= duzo to                                                  kom Tak samo duzo w kalkulator.elr kom
+		WykonujSynchronicznie(MachajOgonem(), MachajZadkiem())  kom WykonujAsynchronicznie() z miesnie.melr ; MachajOgonem() i MachajZadkiem() w odruchy.elr kom
+	w_przec_razie
+		MachajOgonem()
+jesli jest_jedzenie to
+	MachajOgonem()
+	Jedz()
+w_przec_razie_jesli  to
+	
+w_przec_razie
+	

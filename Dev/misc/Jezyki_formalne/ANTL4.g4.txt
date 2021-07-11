@@ -1,0 +1,17 @@
+wyrazenie: wyrazenie '*' wyrazenie
+	| wyrazenie '/' wyrazenie
+	| wyrazenie '+' wyrazenie
+	| wyrazenie '-' wyrazenie
+	| wyrazenie '^' wyrazenie
+	| wyrazenie '(' wyrazenie|arg ')'
+	| WARTOSC
+przypis: ID '=' wyrazenie '$'
+ID '+=' wyrazenie '$' := ID '=' wyrazenie '+' val(ID)
+ID '-=' wyrazenie '$' := ID '=' wyrazenie '-' val(ID)
+ID '*=' wyrazenie '$' := ID '=' wyrazenie '*' val(ID)
+ID '/=' wyrazenie '$' := ID '=' wyrazenie '/' val(ID)
+ID '^=' wyrazenie '$' := ID '=' wyrazenie '^' val(ID)
+ID '+' '+' '$' := wyrazenie '$' ID '=' val(ID) '+=' 1 '$'
+ID '-' '-' '$' := wyrazenie '$' ID '=' val(ID) '-' 1 '$'
+'+' '+' ID '$' := ID '+=' 1 '$'
+'-' '-' ID '$' :=ID '-=' 1 '$'

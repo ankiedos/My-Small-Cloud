@@ -1,0 +1,10 @@
+.import OS
+
+call OS base
+load Windows
+eqp
+if
+load Windows
+printsp
+endif
+exec mkdir directory

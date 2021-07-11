@@ -1,0 +1,10 @@
+SEOS
+GNU/Linux workspace
+DevOS
+C++S
+SASM
+LangFramework
+PML
+STDEXT
+GH Bot
+DC Bot

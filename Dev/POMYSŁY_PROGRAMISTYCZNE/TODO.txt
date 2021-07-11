@@ -1,0 +1,10 @@
+C++S			# C++ Script
+Jai			# Jai
+BASM			# Nie mój, pomoc w docs
+NASM			# Symulator w C++
+Linux -> Windows	# Komendy Linuxa za pomocą plików wsadowych
+MD -> HTML		# Przetwarzacz w C++
+calculator		# C++
+randomiser		# C++
+todo list		# C++, zapisywane w formacie takim, jak ten plik (komentarze i pozycje)
+combinatorics (zbiór, domknięcie Kleene'ego suma ciągu, iloczyn ciągu, granica ciągu, max/min/avg/med/qart zbioru) # C++ (Haskell?)

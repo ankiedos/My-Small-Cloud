@@ -1,0 +1,20 @@
+CPL		1963 - '70 XX wieku
+BCPL		1966			napisano w nim: Pierwszy program Hello World, pierwszy MUD, używany przez pierwszy graficzny PC,
+miał maszynę wirtualną
+
+B		1969			napisano w nim:  C++owy operator ?: został wzięty z B tak samo
+x++ ++x --x x-- += -= *= /= %= |= &= ^=itd.
+
+New B		1971/1972 (na przełomie)
+C		1972			napisano w nim: Singularity OS, Unix, Linux
+C++		1983			napisano w nim: Singularity OS, Windows i wstawki ASM, Word, Notepad++, Firefox, Google Earth,
+FIFA trochę Lisp, Minecraft Bedrock Edition, seria gier Wiedźmin, Adobe Photoshop
+
+Objective-C	1983
+C++/CLI		2005
+C--		1983
+C#		2000 lipiec		napisano w nim: Singularity OS
+VC#		2002
+MCPL		2006?
+D		2007
+Singularity OS-projekt systemu operacyjnego Microsoft chciał zobaczyć czy się uda

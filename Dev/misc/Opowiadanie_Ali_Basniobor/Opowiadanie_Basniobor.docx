@@ -1,0 +1,13 @@
+struct Structure
+[ 
+    public field intgr Var1
+    public field age Wiek
+    public field size Rozmiar
+    public field unit Jednostka
+    public field infinitesimal NieskonczenieMala
+    public field func none FunkcjaKtoraNicNieeZwraca(datetime t, Structure pointer strptr)
+    [
+        static age nowy_wiek = Wiek += t->actual->y;
+    ]
+    field array Tablica(Rozmiar) {Var1, nowy_wiek, Rozmiar, Jednostka, NieskonczenieMala}
+]

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CILR</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <style>
+pre
+{
+    font-family: "Cascadia Code PL";
+}
+.cilr-keyword
+{
+    color: blue;
+    font-style: bold;
+}
+.cilr-comment
+{
+    color: darkgreen;
+}
+.cilr-num
+{
+    color: gold;
+}
+.cilr-func { color: green; }
+</style>
+<h1 id="cilr">CILR</h1>
+<p>CILR is <em>Common Intermediate Language Representation</em>
+Example:</p>
+<pre>
+<span class="cilr-keyword">DEF</span>
+    main 0
+        PRINT
+            ADD
+                LOAD 4
+                LOAD 5 ; Note that there are spaces, not tabs
+            NEWLINE
+        RET
+            LOAD 0
+</pre>
+<p>Is equal to:</p>
+<pre><code><code><div>print(4 + 5, &quot;\n&quot;);
+</div></code></code></pre>
+<p>Or to LLVM's IR:</p>
+<pre><code class="language-llvm"><div><span class="hljs-symbol">%1</span> = <span class="hljs-keyword">add</span> <span class="hljs-keyword">i32</span> <span class="hljs-number">4</span> <span class="hljs-keyword">i32</span> <span class="hljs-number">5</span>
+<span class="hljs-symbol">%2</span> = string <span class="hljs-symbol">%1</span>
+<span class="hljs-symbol">%3</span> = <span class="hljs-keyword">add</span> <span class="hljs-symbol">%2</span> <span class="hljs-string">&quot;\n&quot;</span>
+print <span class="hljs-symbol">%3</span>
+</div></code></pre>
+<h1 id="basics">Basics</h1>
+<p>One of the most important CILR's opcodes is <code>LOAD</code>, beause it is used to &quot;load&quot; literals.
+Examples:</p>
+<pre><code class="language-cilr"><code><div>LOAD 1
+</div></code></code></pre>
+<p>The next one is <code>PRINT</code>. It prints everything.
+Examples:</p>
+<pre><code><code><div>PRINT
+    LOAD 1
+</div></code></code></pre>
+<p>If you want to pass arguments to something, you must do a new line and 4-space indent (except <code>LOAD</code>).</p>
+<h2 id="ret">RET</h2>
+<p>Yeah, <code>RET</code> is a unary function [More on nullary <code>RET</code> you can find in the section <a href="#Registers">Registers</a>]</p>
+<h1 id="math">Math</h1>
+<p>You can do those arithmetic operations: <code>INC</code>, <code>DEC</code>, <code>ADD</code>, <code>SUB</code>, <code>MULT</code>, <code>DIV</code>, <code>POW</code>, <code>ROOT</code>.
+<code>ADD</code> and <code>SUB</code> are implemented like loops, which are doing <code>INC</code> or <code>DEC</code>.
+Examples:</p>
+<pre><code><code><div>PRINT
+    ADD
+        SUB
+            LOAD 1
+            LOAD 4
+        MULT
+            LOAD 1
+            LOAD 4
+    NEWLINE
+</div></code></code></pre>
+<p>Which means the same as</p>
+<pre><code class="language-py"><div>print((<span class="hljs-number">1</span> - <span class="hljs-number">4</span>) + (<span class="hljs-number">1</span> * <span class="hljs-number">4</span>), <span class="hljs-string">&quot;\n&quot;</span>);
+</div></code></pre>
+
+    </body>
+    </html>

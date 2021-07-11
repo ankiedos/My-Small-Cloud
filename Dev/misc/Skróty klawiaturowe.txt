@@ -1,0 +1,29 @@
+WIN + .  --znaki
+WIN + , --widok na pulpit
+WIN + R --uruchamianie
+WIN + P --wyświetlaj na innym ekranie, każde późniejsze-o jeden w dół
+WIN + K --połącz
+WIN + L --ekran blokady
+WIN + M --minimalizacja wszystkich okien
+WIN + B --pokaż ukryte ikony
+WIN + H --dyktowanie
+WIN + I --ustawienia
+WIN + F --centrum opinii
+WIN + A -- powiadomienia
+WIN + S = WIN =WIN + Q = WIN + C
+WIN + X --jakieś inne ustawienia
+WIN + D --minimalizuj/włącz okienko przed minimalizacją tylko tą przez win + d
+WIN + W --Microsoft Whiteboard
+WIN  + E --Eksplorator plików
+WIN + G --narzędzia nagrywania
+WIN + T --poruszanie się po pasku szybkiego dostępu
+WIN + U --ustawienia wyświetlacza
+WIN + + --lupa zwiększanie
+WIN + - --lupa zmniejszanie
+WIN + 0 lub 1 lub 2 lub 3 lub 4... --przełączanie natychmiastowe między oknami
+WIN + strzałka --przełączanie między trybami widoku bierzącego okna 
+dotknięcie 2 palcami pada=kliknięcie prawego przycisku pada
+dotknięcie 3 palcami pada=kliknięcie klawisza WIN
+dotknięcie 4 palcami pada--powiadomienia
+przeciągnięcie 3 (4) palcami na padzie w górę--pulpit, po tym to samo w dół-ekran tego, z czego przełączone na pulpit, jeszcze raz w dół-widok zadań
+przeciągnięcie 3 palcami na padzie w boki--przełączanie między oknami

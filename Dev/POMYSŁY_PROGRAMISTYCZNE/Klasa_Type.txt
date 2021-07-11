@@ -1,0 +1,59 @@
+#include<cstdint>
+#include<initializer_list>
+#include<functional>
+#include<utility>
+
+template<typename T>
+class Type
+{
+private:
+	T val = 0;
+public:
+	T& set = val;
+	Type SetVal(T val) { this->val = val; return *this; }
+	T GetVal() const { return val; }
+
+	Type() = default; // DefaultConstructible requirement
+	Type(T _val) : val{_val} {}
+	Type(const Type& other) : this{other} {} // CopyConstructible requirement
+	Type(Type&& other) : this{std::move(other)} {} // MoveConstructible requirement
+
+	Type(const std::initializer_list& list) : val{list[0]} {}
+	Type(std::initializer_list&& list) : val{std::move(list[0])} {}
+
+	Type operator =(const Type& other) { this->val = other.val; return *this; } // CopyAssignable requirement
+	Type operator =(Type&& other) { this->val = std::move(other.val); return *this; } // MoveAssignable requirement
+
+	Type operator =(const std::initializer_list& list) { this->val = list[0]; return *this; }
+	Type operator =(std::initializer_list&& list) { this->val = std::move(list[0]); return *this; }
+
+	friend Type operator +(Type other1, Type other2) { return Type(other1.val + other2.val); }
+	friend Type operator +(Type other, T val) { return other.SetVal(val + other.val); }
+
+//      Type operator +(T val) { return Type(val + this->val; }
+//      Type operator +(const T& val) { return Type(val + this->val; }
+//      Type operator +(T&& val) { return Type(std::move(val + this->val)); }
+
+	Type operator +=(T val) { return this = this + val; }
+	Type operator +=(const T& val) { return this = this + val; }
+	Type operator +=(T&& val) { return this = std::move(this + val); }
+
+	friend std::ostream& operator <<(std::ostream& out, Type t) { out << t.val; return out; }
+	friend std::istream& operator >>(std::istream& in, Type t) { in >> t.val; return in; }
+
+	Type operator ()(T val) { return this->SetVal(val); }
+	T operator ()() { return this->val; }
+
+	~Type() = default;
+};
+template<>
+void std::swap(Type&& t1, Type&& t2)
+{
+	Type tmp = std::move(t1);
+	t1 = std::move(t2;
+	t2 = std::move(tmp);
+	tmp.~Type();
+}
+
+template<>
+unsigned long long std::hash<Type>(const Type& t) { return (t.GetVal() ^ sizeof(decltype(t.GetVal()))) << sizeof(Type); }

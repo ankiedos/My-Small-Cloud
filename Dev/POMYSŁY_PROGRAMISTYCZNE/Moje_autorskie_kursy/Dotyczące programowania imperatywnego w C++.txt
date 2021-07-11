@@ -1,0 +1,43 @@
+#include<iostream>
+
+int main()
+{
+    int x = 0;
+
+    x != 1 ? goto notone : goto end;
+
+    notone:
+        x > 1 ? goto greater : goto lesser;
+        lesser:
+            x++;
+            x != 1 ? goto notone : goto end;
+        greater:
+            x--;
+            x != 1 ? goto notone : goto end;
+    end:
+        std::cout << "x is now 1!\n";
+    return 0;
+}
+
+mov edx, 0
+test edx, 1
+jne notone
+je end
+notone:
+cmp edx, 1
+jg greater
+jl lesser
+lesser:
+inc edx
+test edx, 1
+jnz notone
+jz end
+greater:
+dec edx
+test edx, 1
+jnz notone
+jz end
+end:
+...
+xor eax, eax
+ret

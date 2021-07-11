@@ -1,0 +1,19 @@
+struct Null
+{
+    Null() { GetVal(); }
+    Null(const Null&) = delete;
+    Null(Null&&) = delete;
+    ~Null() = default;
+private:
+    const unsigned char val = 0x00;
+    constexpr unsigned char GetVal() { return val; } // lub constexpr std::remove_cv_ref_t<decltype(val)> GetVal() { return val; }
+};
+
+struct Nat
+{
+    Nat& Succ(const Nat& n) { return Nat{n.val + 1}; }
+private:
+    unsigned long long val;
+};
+Nat nat{};
+Succ(Succ(Succ(nat))); // => 3

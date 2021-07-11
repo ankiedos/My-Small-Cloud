@@ -1,0 +1,63 @@
+Pliki wykonywalne jako DNA/RNA:
+GA (PE MZ, ELF 7FELF)
+GT AG (komentarze)
+A* (trwałość)
+
+// cpps
+Klasa, której instancja po określonej liczbie wywołań danej metody marnuje się i nie daje prawidłowych wyników.
+// class-reflection
+Class<Class> Example;
+Example.fields.default_accessor = Class::ACCESSOR::PRIVATE;
+Example.fields.private = {
+    {{"Int", "x"}, 45},
+    {{"Const<Int>", "y"}},
+    {{"StaticString", "cstr"}},
+    {{"Char", "ch"}, 'c'}
+};
+Example.methods.default_accessor = Class::ACCESSOR::PUBLIC;
+Example.methods = {
+    {"Void<Int, Bool>", "func", {{0, 2}, {1, true}}, {"const", "noexcept"}, [](Int arg_0__, Bool arg_1__){ return arg_0__ > 0 && arg_1__; }},
+    {"Int", "GetX", {}, {"const", "noexcept"}, [&Example.fields.private.first.second](){ return x; }}
+// DSL-s
+with SQL do
+    SELECT_FROM_WHERE '*', 'furniture', 'price > 1000', .furniture
+    SELECT_FROM_ALL_WHERE '*', 'id > 10', .products
+end
+with XML.XQuery do
+    for .chapter, "hamlet.xml"
+    let .pages, count(chapter, "page")
+    return "<tr><td>Hamlet</td><td>" + .pages + "</td></tr>", .hamlet_pages
+end
+// end-cpps
+
+conquer> display stats my
+Money: 133K $
+Human Resources: 234M p.
+Fuel: 2345M l
+Steel: 3452K kg
+Territory: 2984 km^2
+Regions:
+- Silesia (Upper | Lower | Opole)
+- Lusatia (Upper | Lower)
+- Czechia (Czechia | Moravia)
+- Austria
+- Italia (North | Toscania | Liguria)
+- Monaco
+-------------------------------------------------
+GAME
+Year: 2033
+Country: The Republic of Central Europe
+-------------------------------------------------
+RELATIONS
+Allies:
+- The Hungarian Republic
+- The United Kingdom of Great Britain
+- The Republic of Sweden
+Opponents:
+- The Republic of Ireland
+- Republic of Poland
+- Federal Republic of Germany
+- The Republic of South Italy
+--------------------------------------------------
+MISC
+At war?: no

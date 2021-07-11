@@ -1,0 +1,20 @@
+#define DECLAREWITHANDNonSnake(class_, type, name, field, realfieldname, body) \
+class_ name##field ( type realfieldname ) \
+{ \
+	 body \
+} \
+class_ And##field ( type realfieldname ) \
+{ \
+	return name##field ( realfieldname ); \
+}
+#define DECLAREWITHANDSnake(class_, type, name, field, realfieldname, body) \
+class_ name##_##field ( type realfieldname ) \
+{ \
+	body \
+} \
+class_ and_##field ( type realfieldname ) \
+{ \
+	return name##_##field (type realfieldname ); \
+}
+
+#define nameof(x) #x

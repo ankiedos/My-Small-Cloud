@@ -1,0 +1,18 @@
+<!--cat >> template_conclusion_200_200.html-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="x-ua-compatible" content="IE=edge">
+    </head>
+    <body>
+        <h1 class="title-header">${{ h1.title }}</h1>
+        <div class="page-200-200">
+        <section class="intro">${{ sections.intro }}</section>
+        <section class="content">${{ sections.content }}</section>
+        <section class="conclusion">${{ sections.conclusion }}</section>
+        <hr>
+        <section class="bibliography">${{ sections.bibliography }}</section>
+        </div>
+        <footer>${{ sections.footer }}</footer>
+    </body>
+</html>

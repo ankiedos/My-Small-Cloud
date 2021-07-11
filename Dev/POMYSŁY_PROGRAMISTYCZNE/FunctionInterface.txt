@@ -1,0 +1,58 @@
+#include <iostream>
+#include<string>
+#include<concepts>
+template<typename T>
+T Class(unsigned short& foo, unsigned short& bar, unsigned short& baz, std::string operation)
+{
+    if(operation == "print1") { std::cout << foo; return; }
+    else if(operation == "print2") { std::cout << bar; return; }
+    else if(operation == "print3") { std::cout << baz; return; }
+    else if(operation == "dec1") return --foo;
+    else if(operation == "dec2") return --bar;
+    else if(operation == "dec3") return --baz;
+    else if(operation == "uninit1") return (foo = 0);
+    else if(operation == "uninit2") return (bar = 0);
+    else if(operation == "uninit3") return (baz = 0);
+    else std::cerr << "ERROR: Possible option in interface `Class' are: print(1|2|3), dec(1|2|3), uninit(1|2|3)!\n";
+}
+template<typename T>
+T Class(unsigned short foo, unsigned short bar, unsigned short baz, std::string operation)
+{
+    if(operation == "print1") { std::cout << foo; return; }
+    else if(operation == "print2") { std::cout << bar; return; }
+    else if(operation == "print3") { std::cout << baz; return; }
+    else if(operation == "dec1") return --foo;
+    else if(operation == "dec2") return --bar;
+    else if(operation == "dec3") return --baz;
+    else if(operation == "uninit1") return (foo = 0);
+    else if(operation == "uninit2") return (bar = 0);
+    else if(operation == "uninit3") return (baz = 0);
+    else std::cerr << "ERROR: Possible option in interface `Class' are: print(1|2|3), dec(1|2|3), uninit(1|2|3)!\n";
+}
+template<typename T>
+concept Printable = requires(T x)
+{
+    std::cout << x;
+}
+template<typename Arg> requires Printable<Arg>
+class IO
+{
+    public:
+    static void Print(Arg arg) { std::cout << arg; }
+    private:
+    IO() = default;
+    IO(const Arg&) {};
+    IO(Arg&&) {};
+};
+int main()
+{
+    // cout<<"Hello World";
+    // void Func(int x)
+    // {
+    //     std::cout << x + 1;
+    // }
+    // Func(1);
+    Class<void>(1, 2, 3, "print1");
+    IO<int>::Print(Class<int>(1, 2, 3, "dec1"));
+    return 0;
+}

@@ -1,0 +1,10 @@
+use_synth :prophet | :chiplead | :tb303
+use_random_seed 34230948
+
+with_fx :krush | :echo | :flanger | :reverb, room: 1 do
+	10.times do
+		play 70, release: 2
+		sleep 0.125
+	end
+end
+artbot.club
